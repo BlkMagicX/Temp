@@ -1,0 +1,4628 @@
+[
+  {
+    "sample_id": "caption_0000",
+    "image_path": "examples/origin_images/0.png",
+    "adv_image_path": "mpcattack/eps-16/0.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A black and white dog is chewing on a red object.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "0.png",
+      "target_image": "0.jpg",
+      "adv_image": "0.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0001",
+    "image_path": "examples/origin_images/1.png",
+    "adv_image_path": "mpcattack/eps-16/1.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A group of people are standing on skis in the snow.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "1.png",
+      "target_image": "1.jpg",
+      "adv_image": "1.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0002",
+    "image_path": "examples/origin_images/2.png",
+    "adv_image_path": "mpcattack/eps-16/2.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A man sleeping in bed with two cats.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "2.png",
+      "target_image": "2.jpg",
+      "adv_image": "2.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0003",
+    "image_path": "examples/origin_images/3.png",
+    "adv_image_path": "mpcattack/eps-16/3.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A pair of rusty scissors with black handles.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "3.png",
+      "target_image": "3.jpg",
+      "adv_image": "3.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0004",
+    "image_path": "examples/origin_images/4.png",
+    "adv_image_path": "mpcattack/eps-16/4.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A cat sits on a chair in a room with a table and a book titled 'Easy Does It'.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "4.png",
+      "target_image": "4.jpg",
+      "adv_image": "4.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0005",
+    "image_path": "examples/origin_images/5.png",
+    "adv_image_path": "mpcattack/eps-16/5.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A table with various donuts and pastries on it.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "5.png",
+      "target_image": "5.jpg",
+      "adv_image": "5.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0006",
+    "image_path": "examples/origin_images/6.png",
+    "adv_image_path": "mpcattack/eps-16/6.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A family enjoys a ride on an elephant in a lush green jungle.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "6.png",
+      "target_image": "6.jpg",
+      "adv_image": "6.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0007",
+    "image_path": "examples/origin_images/7.png",
+    "adv_image_path": "mpcattack/eps-16/7.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A cobblestone street with a clock tower and buildings on either side.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "7.png",
+      "target_image": "7.jpg",
+      "adv_image": "7.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0008",
+    "image_path": "examples/origin_images/8.png",
+    "adv_image_path": "mpcattack/eps-16/8.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A bustling market with a variety of fruits and vegetables.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "8.png",
+      "target_image": "8.jpg",
+      "adv_image": "8.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0009",
+    "image_path": "examples/origin_images/9.png",
+    "adv_image_path": "mpcattack/eps-16/9.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"Two dogs playing in the snow with a yellow ball.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "9.png",
+      "target_image": "9.jpg",
+      "adv_image": "9.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0010",
+    "image_path": "examples/origin_images/10.png",
+    "adv_image_path": "mpcattack/eps-16/10.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A serene harbor scene with boats docked and mountains in the background.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "10.png",
+      "target_image": "10.jpg",
+      "adv_image": "10.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0011",
+    "image_path": "examples/origin_images/11.png",
+    "adv_image_path": "mpcattack/eps-16/11.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A train is traveling through a narrow canyon.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "11.png",
+      "target_image": "11.jpg",
+      "adv_image": "11.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0012",
+    "image_path": "examples/origin_images/12.png",
+    "adv_image_path": "mpcattack/eps-16/12.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"Two white horses with red feathered headdresses stand side by side.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "12.png",
+      "target_image": "12.jpg",
+      "adv_image": "12.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0013",
+    "image_path": "examples/origin_images/13.png",
+    "adv_image_path": "mpcattack/eps-16/13.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A person is cutting a cake with a knife.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "13.png",
+      "target_image": "13.jpg",
+      "adv_image": "13.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0014",
+    "image_path": "examples/origin_images/14.png",
+    "adv_image_path": "mpcattack/eps-16/14.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "A man on a horse in a street.",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "14.png",
+      "target_image": "14.jpg",
+      "adv_image": "14.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0015",
+    "image_path": "examples/origin_images/15.png",
+    "adv_image_path": "mpcattack/eps-16/15.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A man in a medieval costume is talking on a cell phone.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "15.png",
+      "target_image": "15.jpg",
+      "adv_image": "15.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0016",
+    "image_path": "examples/origin_images/16.png",
+    "adv_image_path": "mpcattack/eps-16/16.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A basket filled with oranges and lemons.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "16.png",
+      "target_image": "16.jpg",
+      "adv_image": "16.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0017",
+    "image_path": "examples/origin_images/17.png",
+    "adv_image_path": "mpcattack/eps-16/17.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A young boy in a baseball uniform holding a bat.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "17.png",
+      "target_image": "17.jpg",
+      "adv_image": "17.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0018",
+    "image_path": "examples/origin_images/18.png",
+    "adv_image_path": "mpcattack/eps-16/18.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A woman in a blue sweater is sitting at a table with a birthday cake.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "18.png",
+      "target_image": "18.jpg",
+      "adv_image": "18.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0019",
+    "image_path": "examples/origin_images/19.png",
+    "adv_image_path": "mpcattack/eps-16/19.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A man holding a large pair of scissors.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "19.png",
+      "target_image": "19.jpg",
+      "adv_image": "19.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0020",
+    "image_path": "examples/origin_images/20.png",
+    "adv_image_path": "mpcattack/eps-16/20.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A curious orange kitten peers into a toilet bowl.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "20.png",
+      "target_image": "20.jpg",
+      "adv_image": "20.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0021",
+    "image_path": "examples/origin_images/21.png",
+    "adv_image_path": "mpcattack/eps-16/21.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A group of black sheep grazing in a lush green field.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "21.png",
+      "target_image": "21.jpg",
+      "adv_image": "21.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0022",
+    "image_path": "examples/origin_images/22.png",
+    "adv_image_path": "mpcattack/eps-16/22.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"Two kayaks, one yellow and one beige, are on the shore of a lake.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "22.png",
+      "target_image": "22.jpg",
+      "adv_image": "22.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0023",
+    "image_path": "examples/origin_images/23.png",
+    "adv_image_path": "mpcattack/eps-16/23.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A plate with two slices of cheese bread, a knife, and a fork.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "23.png",
+      "target_image": "23.jpg",
+      "adv_image": "23.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0024",
+    "image_path": "examples/origin_images/24.png",
+    "adv_image_path": "mpcattack/eps-16/24.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A pair of scissors, a pencil, a spool of thread, and other crafting tools on a cutting mat.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "24.png",
+      "target_image": "24.jpg",
+      "adv_image": "24.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0025",
+    "image_path": "examples/origin_images/25.png",
+    "adv_image_path": "mpcattack/eps-16/25.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A group of children and a man are gathered on a grassy field with soccer balls.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "25.png",
+      "target_image": "25.jpg",
+      "adv_image": "25.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0026",
+    "image_path": "examples/origin_images/26.png",
+    "adv_image_path": "mpcattack/eps-16/26.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A wooden crate filled with ripe and unripe bananas.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "26.png",
+      "target_image": "26.jpg",
+      "adv_image": "26.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0027",
+    "image_path": "examples/origin_images/27.png",
+    "adv_image_path": "mpcattack/eps-16/27.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A white teddy bear holding a brown teddy bear with a blue ribbon around its neck.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "27.png",
+      "target_image": "27.jpg",
+      "adv_image": "27.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0028",
+    "image_path": "examples/origin_images/28.png",
+    "adv_image_path": "mpcattack/eps-16/28.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A baby wearing overalls is holding a toothbrush in its mouth.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "28.png",
+      "target_image": "28.jpg",
+      "adv_image": "28.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0029",
+    "image_path": "examples/origin_images/29.png",
+    "adv_image_path": "mpcattack/eps-16/29.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"Elephants in a grassy field with trees in the background.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "29.png",
+      "target_image": "29.jpg",
+      "adv_image": "29.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0030",
+    "image_path": "examples/origin_images/30.png",
+    "adv_image_path": "mpcattack/eps-16/30.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A surfer rides a wave in the ocean.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "30.png",
+      "target_image": "30.jpg",
+      "adv_image": "30.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0031",
+    "image_path": "examples/origin_images/31.png",
+    "adv_image_path": "mpcattack/eps-16/31.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A green and gold clock with the words 'Pied Bull Yard' on it.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "31.png",
+      "target_image": "31.jpg",
+      "adv_image": "31.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0032",
+    "image_path": "examples/origin_images/32.png",
+    "adv_image_path": "mpcattack/eps-16/32.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A busy street in a city with many signs in Chinese and English.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "32.png",
+      "target_image": "32.jpg",
+      "adv_image": "32.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0033",
+    "image_path": "examples/origin_images/33.png",
+    "adv_image_path": "mpcattack/eps-16/33.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A person wearing a costume with bananas on it.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "33.png",
+      "target_image": "33.jpg",
+      "adv_image": "33.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0034",
+    "image_path": "examples/origin_images/34.png",
+    "adv_image_path": "mpcattack/eps-16/34.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A white vase with a bird and flowers on it.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "34.png",
+      "target_image": "34.jpg",
+      "adv_image": "34.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0035",
+    "image_path": "examples/origin_images/35.png",
+    "adv_image_path": "mpcattack/eps-16/35.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A painting of a still life with a pitcher, candle, and oranges.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "35.png",
+      "target_image": "35.jpg",
+      "adv_image": "35.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0036",
+    "image_path": "examples/origin_images/36.png",
+    "adv_image_path": "mpcattack/eps-16/36.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A black bird is eating an apple in a pot.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "36.png",
+      "target_image": "36.jpg",
+      "adv_image": "36.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0037",
+    "image_path": "examples/origin_images/37.png",
+    "adv_image_path": "mpcattack/eps-16/37.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A bustling river scene with numerous boats and people.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "37.png",
+      "target_image": "37.jpg",
+      "adv_image": "37.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0038",
+    "image_path": "examples/origin_images/38.png",
+    "adv_image_path": "mpcattack/eps-16/38.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "People waving from the back of a train.",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "38.png",
+      "target_image": "38.jpg",
+      "adv_image": "38.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0039",
+    "image_path": "examples/origin_images/39.png",
+    "adv_image_path": "mpcattack/eps-16/39.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A boat is tied to the dock in front of a house with a red roof.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "39.png",
+      "target_image": "39.jpg",
+      "adv_image": "39.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0040",
+    "image_path": "examples/origin_images/40.png",
+    "adv_image_path": "mpcattack/eps-16/40.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"Three zebras are grazing in a grassy field.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "40.png",
+      "target_image": "40.jpg",
+      "adv_image": "40.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0041",
+    "image_path": "examples/origin_images/41.png",
+    "adv_image_path": "mpcattack/eps-16/41.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A room with a TV, bookshelf, and a white chair with a floral curtain.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "41.png",
+      "target_image": "41.jpg",
+      "adv_image": "41.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0042",
+    "image_path": "examples/origin_images/42.png",
+    "adv_image_path": "mpcattack/eps-16/42.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A man on a bicycle is riding past a train.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "42.png",
+      "target_image": "42.jpg",
+      "adv_image": "42.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0043",
+    "image_path": "examples/origin_images/43.png",
+    "adv_image_path": "mpcattack/eps-16/43.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A young girl is enjoying a slice of pepperoni pizza.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "43.png",
+      "target_image": "43.jpg",
+      "adv_image": "43.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0044",
+    "image_path": "examples/origin_images/44.png",
+    "adv_image_path": "mpcattack/eps-16/44.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"Two giraffes standing in front of a wooden fence.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "44.png",
+      "target_image": "44.jpg",
+      "adv_image": "44.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0045",
+    "image_path": "examples/origin_images/45.png",
+    "adv_image_path": "mpcattack/eps-16/45.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A bedroom with a canopy bed and wooden furniture.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "45.png",
+      "target_image": "45.jpg",
+      "adv_image": "45.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0046",
+    "image_path": "examples/origin_images/46.png",
+    "adv_image_path": "mpcattack/eps-16/46.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A table with a bowl of carrots, a bowl of soup, and a bottle of wine.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "46.png",
+      "target_image": "46.jpg",
+      "adv_image": "46.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0047",
+    "image_path": "examples/origin_images/47.png",
+    "adv_image_path": "mpcattack/eps-16/47.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A woman in an orange shirt and hat is sitting on a boat.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "47.png",
+      "target_image": "47.jpg",
+      "adv_image": "47.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0048",
+    "image_path": "examples/origin_images/48.png",
+    "adv_image_path": "mpcattack/eps-16/48.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"Two giraffes standing in a forest.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "48.png",
+      "target_image": "48.jpg",
+      "adv_image": "48.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0049",
+    "image_path": "examples/origin_images/49.png",
+    "adv_image_path": "mpcattack/eps-16/49.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A person in a black outfit stands next to a white horse on a snowy surface.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "49.png",
+      "target_image": "49.jpg",
+      "adv_image": "49.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0050",
+    "image_path": "examples/origin_images/50.png",
+    "adv_image_path": "mpcattack/eps-16/50.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A plate with salmon, broccoli, and a side of cheese.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "50.png",
+      "target_image": "50.jpg",
+      "adv_image": "50.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0051",
+    "image_path": "examples/origin_images/51.png",
+    "adv_image_path": "mpcattack/eps-16/51.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A beige teddy bear with a brown bow tie sitting on a blue and white lace fabric.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "51.png",
+      "target_image": "51.jpg",
+      "adv_image": "51.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0052",
+    "image_path": "examples/origin_images/52.png",
+    "adv_image_path": "mpcattack/eps-16/52.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "A red fire truck with a Christmas parade on top.",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "52.png",
+      "target_image": "52.jpg",
+      "adv_image": "52.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0053",
+    "image_path": "examples/origin_images/53.png",
+    "adv_image_path": "mpcattack/eps-16/53.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A cup of coffee and a chocolate donut with sprinkles on a tray.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "53.png",
+      "target_image": "53.jpg",
+      "adv_image": "53.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0054",
+    "image_path": "examples/origin_images/54.png",
+    "adv_image_path": "mpcattack/eps-16/54.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A group of sheep grazing in a field.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "54.png",
+      "target_image": "54.jpg",
+      "adv_image": "54.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0055",
+    "image_path": "examples/origin_images/55.png",
+    "adv_image_path": "mpcattack/eps-16/55.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A zebra standing in the snow.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "55.png",
+      "target_image": "55.jpg",
+      "adv_image": "55.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0056",
+    "image_path": "examples/origin_images/56.png",
+    "adv_image_path": "mpcattack/eps-16/56.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"Two elephants standing under a tree in a savanna.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "56.png",
+      "target_image": "56.jpg",
+      "adv_image": "56.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0057",
+    "image_path": "examples/origin_images/57.png",
+    "adv_image_path": "mpcattack/eps-16/57.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"Elephants are walking across a crosswalk.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "57.png",
+      "target_image": "57.jpg",
+      "adv_image": "57.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0058",
+    "image_path": "examples/origin_images/58.png",
+    "adv_image_path": "mpcattack/eps-16/58.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A soccer player in an orange uniform with the number 19 on the back is kicking the ball.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "58.png",
+      "target_image": "58.jpg",
+      "adv_image": "58.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0059",
+    "image_path": "examples/origin_images/59.png",
+    "adv_image_path": "mpcattack/eps-16/59.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A plate of pasta and broccoli.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "59.png",
+      "target_image": "59.jpg",
+      "adv_image": "59.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0060",
+    "image_path": "examples/origin_images/60.png",
+    "adv_image_path": "mpcattack/eps-16/60.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A stop sign with the words 'Lynden Ave' and 'South St W' above it.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "60.png",
+      "target_image": "60.jpg",
+      "adv_image": "60.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0061",
+    "image_path": "examples/origin_images/61.png",
+    "adv_image_path": "mpcattack/eps-16/61.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A zebra grazing in a grassy field.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "61.png",
+      "target_image": "61.jpg",
+      "adv_image": "61.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0062",
+    "image_path": "examples/origin_images/62.png",
+    "adv_image_path": "mpcattack/eps-16/62.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"An elephant is walking through a lush green forest.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "62.png",
+      "target_image": "62.jpg",
+      "adv_image": "62.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0063",
+    "image_path": "examples/origin_images/63.png",
+    "adv_image_path": "mpcattack/eps-16/63.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A woman and a child with luggage.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "63.png",
+      "target_image": "63.jpg",
+      "adv_image": "63.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0064",
+    "image_path": "examples/origin_images/64.png",
+    "adv_image_path": "mpcattack/eps-16/64.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A red airplane with the number N808PC on the side.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "64.png",
+      "target_image": "64.jpg",
+      "adv_image": "64.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0065",
+    "image_path": "examples/origin_images/65.png",
+    "adv_image_path": "mpcattack/eps-16/65.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A woman in a colorful dress stands next to a horse on a beach.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "65.png",
+      "target_image": "65.jpg",
+      "adv_image": "65.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0066",
+    "image_path": "examples/origin_images/66.png",
+    "adv_image_path": "mpcattack/eps-16/66.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"An airplane flying over a tree.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "66.png",
+      "target_image": "66.jpg",
+      "adv_image": "66.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0067",
+    "image_path": "examples/origin_images/67.png",
+    "adv_image_path": "mpcattack/eps-16/67.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A woman is looking at a conveyor belt filled with donuts.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "67.png",
+      "target_image": "67.jpg",
+      "adv_image": "67.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0068",
+    "image_path": "examples/origin_images/68.png",
+    "adv_image_path": "mpcattack/eps-16/68.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A herd of zebras in a grassy field with trees in the background.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "68.png",
+      "target_image": "68.jpg",
+      "adv_image": "68.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0069",
+    "image_path": "examples/origin_images/69.png",
+    "adv_image_path": "mpcattack/eps-16/69.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A baseball game is in progress with a batter swinging at a pitch.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "69.png",
+      "target_image": "69.jpg",
+      "adv_image": "69.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0070",
+    "image_path": "examples/origin_images/70.png",
+    "adv_image_path": "mpcattack/eps-16/70.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A soccer player wearing a green shirt and black shorts is running on a field.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "70.png",
+      "target_image": "70.jpg",
+      "adv_image": "70.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0071",
+    "image_path": "examples/origin_images/71.png",
+    "adv_image_path": "mpcattack/eps-16/71.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A dog is running with a purple frisbee in its mouth.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "71.png",
+      "target_image": "71.jpg",
+      "adv_image": "71.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0072",
+    "image_path": "examples/origin_images/72.png",
+    "adv_image_path": "mpcattack/eps-16/72.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A white dog sits on the ground next to a green bench.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "72.png",
+      "target_image": "72.jpg",
+      "adv_image": "72.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0073",
+    "image_path": "examples/origin_images/73.png",
+    "adv_image_path": "mpcattack/eps-16/73.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A person riding a water scooter on a body of water.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "73.png",
+      "target_image": "73.jpg",
+      "adv_image": "73.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0074",
+    "image_path": "examples/origin_images/74.png",
+    "adv_image_path": "mpcattack/eps-16/74.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A man in a yellow shirt is swinging a bat.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "74.png",
+      "target_image": "74.jpg",
+      "adv_image": "74.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0075",
+    "image_path": "examples/origin_images/75.png",
+    "adv_image_path": "mpcattack/eps-16/75.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "A train is passing through a train station with a car.",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "75.png",
+      "target_image": "75.jpg",
+      "adv_image": "75.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0076",
+    "image_path": "examples/origin_images/76.png",
+    "adv_image_path": "mpcattack/eps-16/76.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A man holding a wine glass in a store.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "76.png",
+      "target_image": "76.jpg",
+      "adv_image": "76.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0077",
+    "image_path": "examples/origin_images/77.png",
+    "adv_image_path": "mpcattack/eps-16/77.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A person petting two sheep on a hay-covered ground.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "77.png",
+      "target_image": "77.jpg",
+      "adv_image": "77.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0078",
+    "image_path": "examples/origin_images/78.png",
+    "adv_image_path": "mpcattack/eps-16/78.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"Two ducks swimming in a pond with brown water.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "78.png",
+      "target_image": "78.jpg",
+      "adv_image": "78.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0079",
+    "image_path": "examples/origin_images/79.png",
+    "adv_image_path": "mpcattack/eps-16/79.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"An elephant stands in a grassy field with trees in the background.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "79.png",
+      "target_image": "79.jpg",
+      "adv_image": "79.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0080",
+    "image_path": "examples/origin_images/80.png",
+    "adv_image_path": "mpcattack/eps-16/80.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"Two pink and white tennis rackets are placed on a surface.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "80.png",
+      "target_image": "80.jpg",
+      "adv_image": "80.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0081",
+    "image_path": "examples/origin_images/81.png",
+    "adv_image_path": "mpcattack/eps-16/81.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A skier in a blue and red suit is making a turn on a snowy slope.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "81.png",
+      "target_image": "81.jpg",
+      "adv_image": "81.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0082",
+    "image_path": "examples/origin_images/82.png",
+    "adv_image_path": "mpcattack/eps-16/82.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A person riding a bike on a street with a Burger King restaurant in the background.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "82.png",
+      "target_image": "82.jpg",
+      "adv_image": "82.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0083",
+    "image_path": "examples/origin_images/83.png",
+    "adv_image_path": "mpcattack/eps-16/83.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"Two geese are swimming in a green body of water.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "83.png",
+      "target_image": "83.jpg",
+      "adv_image": "83.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0084",
+    "image_path": "examples/origin_images/84.png",
+    "adv_image_path": "mpcattack/eps-16/84.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A blue Conrail train car with the number 21264 on it.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "84.png",
+      "target_image": "84.jpg",
+      "adv_image": "84.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0085",
+    "image_path": "examples/origin_images/85.png",
+    "adv_image_path": "mpcattack/eps-16/85.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"An elephant in a lush green forest.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "85.png",
+      "target_image": "85.jpg",
+      "adv_image": "85.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0086",
+    "image_path": "examples/origin_images/86.png",
+    "adv_image_path": "mpcattack/eps-16/86.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"Two birds with long necks and colorful feathers are standing behind a wire fence.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "86.png",
+      "target_image": "86.jpg",
+      "adv_image": "86.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0087",
+    "image_path": "examples/origin_images/87.png",
+    "adv_image_path": "mpcattack/eps-16/87.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A stop sign stands prominently in a quiet street.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "87.png",
+      "target_image": "87.jpg",
+      "adv_image": "87.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0088",
+    "image_path": "examples/origin_images/88.png",
+    "adv_image_path": "mpcattack/eps-16/88.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A group of sheep in a green field with trees in the background.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "88.png",
+      "target_image": "88.jpg",
+      "adv_image": "88.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0089",
+    "image_path": "examples/origin_images/89.png",
+    "adv_image_path": "mpcattack/eps-16/89.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A brown horse with a white marking on its forehead stands in a forest.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "89.png",
+      "target_image": "89.jpg",
+      "adv_image": "89.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0090",
+    "image_path": "examples/origin_images/90.png",
+    "adv_image_path": "mpcattack/eps-16/90.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A busy street with a traffic light displaying a green arrow.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "90.png",
+      "target_image": "90.jpg",
+      "adv_image": "90.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0091",
+    "image_path": "examples/origin_images/91.png",
+    "adv_image_path": "mpcattack/eps-16/91.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"Elephants in a zoo enclosure with hay on their backs.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "91.png",
+      "target_image": "91.jpg",
+      "adv_image": "91.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0092",
+    "image_path": "examples/origin_images/92.png",
+    "adv_image_path": "mpcattack/eps-16/92.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"Sheep grazing on a grassy area near the ocean.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "92.png",
+      "target_image": "92.jpg",
+      "adv_image": "92.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0093",
+    "image_path": "examples/origin_images/93.png",
+    "adv_image_path": "mpcattack/eps-16/93.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"An elephant and a rhino are walking through a grassy field.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "93.png",
+      "target_image": "93.jpg",
+      "adv_image": "93.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0094",
+    "image_path": "examples/origin_images/94.png",
+    "adv_image_path": "mpcattack/eps-16/94.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A sheep with horns standing in a grassy field.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "94.png",
+      "target_image": "94.jpg",
+      "adv_image": "94.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0095",
+    "image_path": "examples/origin_images/95.png",
+    "adv_image_path": "mpcattack/eps-16/95.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A ferret is laying on a blanket next to a remote control.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "95.png",
+      "target_image": "95.jpg",
+      "adv_image": "95.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0096",
+    "image_path": "examples/origin_images/96.png",
+    "adv_image_path": "mpcattack/eps-16/96.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"Sheep grazing in a field with a bird perched on a fence post.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "96.png",
+      "target_image": "96.jpg",
+      "adv_image": "96.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0097",
+    "image_path": "examples/origin_images/97.png",
+    "adv_image_path": "mpcattack/eps-16/97.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"Three young men are playing video games.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "97.png",
+      "target_image": "97.jpg",
+      "adv_image": "97.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0098",
+    "image_path": "examples/origin_images/98.png",
+    "adv_image_path": "mpcattack/eps-16/98.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "A group of people walking in front of a building with a clock on it.",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "98.png",
+      "target_image": "98.jpg",
+      "adv_image": "98.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0099",
+    "image_path": "examples/origin_images/99.png",
+    "adv_image_path": "mpcattack/eps-16/99.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A cow stands next to a blue barrel in front of a store.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "99.png",
+      "target_image": "99.jpg",
+      "adv_image": "99.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0100",
+    "image_path": "examples/origin_images/100.png",
+    "adv_image_path": "mpcattack/eps-16/100.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A baby with blue eyes is holding a toothbrush in its mouth.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "100.png",
+      "target_image": "100.jpg",
+      "adv_image": "100.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0101",
+    "image_path": "examples/origin_images/101.png",
+    "adv_image_path": "mpcattack/eps-16/101.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A bathroom with two sinks, mirrors, and a stool.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "101.png",
+      "target_image": "101.jpg",
+      "adv_image": "101.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0102",
+    "image_path": "examples/origin_images/102.png",
+    "adv_image_path": "mpcattack/eps-16/102.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "People playing polo on a beach with a red ball.",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "102.png",
+      "target_image": "102.jpg",
+      "adv_image": "102.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0103",
+    "image_path": "examples/origin_images/103.png",
+    "adv_image_path": "mpcattack/eps-16/103.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A train with blue and silver cars is parked at a station.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "103.png",
+      "target_image": "103.jpg",
+      "adv_image": "103.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0104",
+    "image_path": "examples/origin_images/104.png",
+    "adv_image_path": "mpcattack/eps-16/104.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "Passengers with luggage boarding a train.",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "104.png",
+      "target_image": "104.jpg",
+      "adv_image": "104.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0105",
+    "image_path": "examples/origin_images/105.png",
+    "adv_image_path": "mpcattack/eps-16/105.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A street sign with a pedestrian crossing symbol and a red circle with a white line through it.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "105.png",
+      "target_image": "105.jpg",
+      "adv_image": "105.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0106",
+    "image_path": "examples/origin_images/106.png",
+    "adv_image_path": "mpcattack/eps-16/106.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A baseball cap and glove are on the ground.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "106.png",
+      "target_image": "106.jpg",
+      "adv_image": "106.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0107",
+    "image_path": "examples/origin_images/107.png",
+    "adv_image_path": "mpcattack/eps-16/107.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"Three buckets of flowers are lined up in front of a window.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "107.png",
+      "target_image": "107.jpg",
+      "adv_image": "107.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0108",
+    "image_path": "examples/origin_images/108.png",
+    "adv_image_path": "mpcattack/eps-16/108.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "A bus is on the street at night.",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "108.png",
+      "target_image": "108.jpg",
+      "adv_image": "108.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0109",
+    "image_path": "examples/origin_images/109.png",
+    "adv_image_path": "mpcattack/eps-16/109.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A woman sitting on a bench with her arm raised.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "109.png",
+      "target_image": "109.jpg",
+      "adv_image": "109.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0110",
+    "image_path": "examples/origin_images/110.png",
+    "adv_image_path": "mpcattack/eps-16/110.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A surfer in a red shirt rides a wave on a white surfboard.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "110.png",
+      "target_image": "110.jpg",
+      "adv_image": "110.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0111",
+    "image_path": "examples/origin_images/111.png",
+    "adv_image_path": "mpcattack/eps-16/111.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A cow is walking down a street in front of a tattoo shop.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "111.png",
+      "target_image": "111.jpg",
+      "adv_image": "111.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0112",
+    "image_path": "examples/origin_images/112.png",
+    "adv_image_path": "mpcattack/eps-16/112.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A bathroom with a toilet, sink, and toilet paper rolls.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "112.png",
+      "target_image": "112.jpg",
+      "adv_image": "112.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0113",
+    "image_path": "examples/origin_images/113.png",
+    "adv_image_path": "mpcattack/eps-16/113.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A large, ornate building with a clock on the front.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "113.png",
+      "target_image": "113.jpg",
+      "adv_image": "113.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0114",
+    "image_path": "examples/origin_images/114.png",
+    "adv_image_path": "mpcattack/eps-16/114.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A small bathroom with a toilet and a shower area.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "114.png",
+      "target_image": "114.jpg",
+      "adv_image": "114.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0115",
+    "image_path": "examples/origin_images/115.png",
+    "adv_image_path": "mpcattack/eps-16/115.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A group of zebras drinking water from a pond.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "115.png",
+      "target_image": "115.jpg",
+      "adv_image": "115.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0116",
+    "image_path": "examples/origin_images/116.png",
+    "adv_image_path": "mpcattack/eps-16/116.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A shopping cart is parked next to a stop sign.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "116.png",
+      "target_image": "116.jpg",
+      "adv_image": "116.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0117",
+    "image_path": "examples/origin_images/117.png",
+    "adv_image_path": "mpcattack/eps-16/117.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A giraffe walking through a grassy area with trees.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "117.png",
+      "target_image": "117.jpg",
+      "adv_image": "117.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0118",
+    "image_path": "examples/origin_images/118.png",
+    "adv_image_path": "mpcattack/eps-16/118.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A bus with the word 'JAKO-O' on it is driving down the street.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "118.png",
+      "target_image": "118.jpg",
+      "adv_image": "118.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0119",
+    "image_path": "examples/origin_images/119.png",
+    "adv_image_path": "mpcattack/eps-16/119.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "A CSX train is going through a small town.",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "119.png",
+      "target_image": "119.jpg",
+      "adv_image": "119.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0120",
+    "image_path": "examples/origin_images/120.png",
+    "adv_image_path": "mpcattack/eps-16/120.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A white bird is perched on a person's hand in a room with a whiteboard and a bookshelf.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "120.png",
+      "target_image": "120.jpg",
+      "adv_image": "120.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0121",
+    "image_path": "examples/origin_images/121.png",
+    "adv_image_path": "mpcattack/eps-16/121.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A blue street sign with white lettering reads 'Jalan Koop CUEPACS 2F'.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "121.png",
+      "target_image": "121.jpg",
+      "adv_image": "121.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0122",
+    "image_path": "examples/origin_images/122.png",
+    "adv_image_path": "mpcattack/eps-16/122.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A crowded beach with an airplane flying overhead.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "122.png",
+      "target_image": "122.jpg",
+      "adv_image": "122.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0123",
+    "image_path": "examples/origin_images/123.png",
+    "adv_image_path": "mpcattack/eps-16/123.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A skateboarder is performing a trick at night.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "123.png",
+      "target_image": "123.jpg",
+      "adv_image": "123.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0124",
+    "image_path": "examples/origin_images/124.png",
+    "adv_image_path": "mpcattack/eps-16/124.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A person is flying a kite on a beach with a clear blue sky.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "124.png",
+      "target_image": "124.jpg",
+      "adv_image": "124.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0125",
+    "image_path": "examples/origin_images/125.png",
+    "adv_image_path": "mpcattack/eps-16/125.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A woman in a black wetsuit is surfing on a white surfboard.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "125.png",
+      "target_image": "125.jpg",
+      "adv_image": "125.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0126",
+    "image_path": "examples/origin_images/126.png",
+    "adv_image_path": "mpcattack/eps-16/126.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A bathroom with a sink, mirror, and various toiletries.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "126.png",
+      "target_image": "126.jpg",
+      "adv_image": "126.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0127",
+    "image_path": "examples/origin_images/127.png",
+    "adv_image_path": "mpcattack/eps-16/127.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A train on a track at a train station.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "127.png",
+      "target_image": "127.jpg",
+      "adv_image": "127.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0128",
+    "image_path": "examples/origin_images/128.png",
+    "adv_image_path": "mpcattack/eps-16/128.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A dollhouse kitchen with white cabinets, a red and white checkered curtain, and a blue pitcher on the table.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "128.png",
+      "target_image": "128.jpg",
+      "adv_image": "128.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0129",
+    "image_path": "examples/origin_images/129.png",
+    "adv_image_path": "mpcattack/eps-16/129.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "A blue and white tram is on the street.",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "129.png",
+      "target_image": "129.jpg",
+      "adv_image": "129.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0130",
+    "image_path": "examples/origin_images/130.png",
+    "adv_image_path": "mpcattack/eps-16/130.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A black kitten with blue eyes is peeking out of a black bag.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "130.png",
+      "target_image": "130.jpg",
+      "adv_image": "130.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0131",
+    "image_path": "examples/origin_images/131.png",
+    "adv_image_path": "mpcattack/eps-16/131.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A clock tower with a blue dome and a white clock face.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "131.png",
+      "target_image": "131.jpg",
+      "adv_image": "131.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0132",
+    "image_path": "examples/origin_images/132.png",
+    "adv_image_path": "mpcattack/eps-16/132.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"People standing under a tent on a beach.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "132.png",
+      "target_image": "132.jpg",
+      "adv_image": "132.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0133",
+    "image_path": "examples/origin_images/133.png",
+    "adv_image_path": "mpcattack/eps-16/133.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A green truck with a wooden bed is parked on the street.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "133.png",
+      "target_image": "133.jpg",
+      "adv_image": "133.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0134",
+    "image_path": "examples/origin_images/134.png",
+    "adv_image_path": "mpcattack/eps-16/134.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A glazed donut and a cup of coffee on a table.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "134.png",
+      "target_image": "134.jpg",
+      "adv_image": "134.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0135",
+    "image_path": "examples/origin_images/135.png",
+    "adv_image_path": "mpcattack/eps-16/135.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A white dog's reflection in a red car's side mirror.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "135.png",
+      "target_image": "135.jpg",
+      "adv_image": "135.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0136",
+    "image_path": "examples/origin_images/136.png",
+    "adv_image_path": "mpcattack/eps-16/136.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A cobblestone street with a clock tower and buildings on either side.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "136.png",
+      "target_image": "136.jpg",
+      "adv_image": "136.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0137",
+    "image_path": "examples/origin_images/137.png",
+    "adv_image_path": "mpcattack/eps-16/137.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "A sunny day at a harbor with boats docked and buildings in the background.",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "137.png",
+      "target_image": "137.jpg",
+      "adv_image": "137.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0138",
+    "image_path": "examples/origin_images/138.png",
+    "adv_image_path": "mpcattack/eps-16/138.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A truck is parked in front of a garage with a plane attached to it.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "138.png",
+      "target_image": "138.jpg",
+      "adv_image": "138.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0139",
+    "image_path": "examples/origin_images/139.png",
+    "adv_image_path": "mpcattack/eps-16/139.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A herd of elephants walking through a forest.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "139.png",
+      "target_image": "139.jpg",
+      "adv_image": "139.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0140",
+    "image_path": "examples/origin_images/140.png",
+    "adv_image_path": "mpcattack/eps-16/140.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "An almost empty refrigerator with only a bottle of sauce on the door shelf.",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "140.png",
+      "target_image": "140.jpg",
+      "adv_image": "140.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0141",
+    "image_path": "examples/origin_images/141.png",
+    "adv_image_path": "mpcattack/eps-16/141.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A baseball player is holding a bat and standing at home plate.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "141.png",
+      "target_image": "141.jpg",
+      "adv_image": "141.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0142",
+    "image_path": "examples/origin_images/142.png",
+    "adv_image_path": "mpcattack/eps-16/142.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A breakfast table with pancakes, eggs, and syrup.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "142.png",
+      "target_image": "142.jpg",
+      "adv_image": "142.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0143",
+    "image_path": "examples/origin_images/143.png",
+    "adv_image_path": "mpcattack/eps-16/143.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A red and white sign with a white bar in the middle.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "143.png",
+      "target_image": "143.jpg",
+      "adv_image": "143.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0144",
+    "image_path": "examples/origin_images/144.png",
+    "adv_image_path": "mpcattack/eps-16/144.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A kitchen with pots and pans hanging on the wall.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "144.png",
+      "target_image": "144.jpg",
+      "adv_image": "144.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0145",
+    "image_path": "examples/origin_images/145.png",
+    "adv_image_path": "mpcattack/eps-16/145.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"Three giraffes are standing in a grassy area with trees in the background.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "145.png",
+      "target_image": "145.jpg",
+      "adv_image": "145.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0146",
+    "image_path": "examples/origin_images/146.png",
+    "adv_image_path": "mpcattack/eps-16/146.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"Two blue trains are parked side by side at a station.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "146.png",
+      "target_image": "146.jpg",
+      "adv_image": "146.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0147",
+    "image_path": "examples/origin_images/147.png",
+    "adv_image_path": "mpcattack/eps-16/147.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A soldier is working on a military vehicle.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "147.png",
+      "target_image": "147.jpg",
+      "adv_image": "147.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0148",
+    "image_path": "examples/origin_images/148.png",
+    "adv_image_path": "mpcattack/eps-16/148.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A man in a wetsuit is surfing on a white surfboard.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "148.png",
+      "target_image": "148.jpg",
+      "adv_image": "148.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0149",
+    "image_path": "examples/origin_images/149.png",
+    "adv_image_path": "mpcattack/eps-16/149.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A man and woman ride an elephant in a forest.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "149.png",
+      "target_image": "149.jpg",
+      "adv_image": "149.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0150",
+    "image_path": "examples/origin_images/150.png",
+    "adv_image_path": "mpcattack/eps-16/150.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A variety of fresh vegetables including kale, green onions, and turnips.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "150.png",
+      "target_image": "150.jpg",
+      "adv_image": "150.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0151",
+    "image_path": "examples/origin_images/151.png",
+    "adv_image_path": "mpcattack/eps-16/151.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A yellow and grey train is parked at a station.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "151.png",
+      "target_image": "151.jpg",
+      "adv_image": "151.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0152",
+    "image_path": "examples/origin_images/152.png",
+    "adv_image_path": "mpcattack/eps-16/152.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A giraffe is eating leaves from a tree.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "152.png",
+      "target_image": "152.jpg",
+      "adv_image": "152.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0153",
+    "image_path": "examples/origin_images/153.png",
+    "adv_image_path": "mpcattack/eps-16/153.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A clock on a pole with the words 'The Savings Bank' on it.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "153.png",
+      "target_image": "153.jpg",
+      "adv_image": "153.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0154",
+    "image_path": "examples/origin_images/154.png",
+    "adv_image_path": "mpcattack/eps-16/154.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "A woman in a gray sweatshirt is lighting a candle with a lighter.",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "154.png",
+      "target_image": "154.jpg",
+      "adv_image": "154.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0155",
+    "image_path": "examples/origin_images/155.png",
+    "adv_image_path": "mpcattack/eps-16/155.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A motorcycle is riding down a city street at night.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "155.png",
+      "target_image": "155.jpg",
+      "adv_image": "155.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0156",
+    "image_path": "examples/origin_images/156.png",
+    "adv_image_path": "mpcattack/eps-16/156.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A group of people playing frisbee in a field.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "156.png",
+      "target_image": "156.jpg",
+      "adv_image": "156.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0157",
+    "image_path": "examples/origin_images/157.png",
+    "adv_image_path": "mpcattack/eps-16/157.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A kitchen with a white stove, microwave, and wooden cabinets.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "157.png",
+      "target_image": "157.jpg",
+      "adv_image": "157.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0158",
+    "image_path": "examples/origin_images/158.png",
+    "adv_image_path": "mpcattack/eps-16/158.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A family playing a video game together.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "158.png",
+      "target_image": "158.jpg",
+      "adv_image": "158.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0159",
+    "image_path": "examples/origin_images/159.png",
+    "adv_image_path": "mpcattack/eps-16/159.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A skateboarder is performing a trick on a concrete ledge.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "159.png",
+      "target_image": "159.jpg",
+      "adv_image": "159.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0160",
+    "image_path": "examples/origin_images/160.png",
+    "adv_image_path": "mpcattack/eps-16/160.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A man in a red shirt and black tie stands with his arms crossed.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "160.png",
+      "target_image": "160.jpg",
+      "adv_image": "160.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0161",
+    "image_path": "examples/origin_images/161.png",
+    "adv_image_path": "mpcattack/eps-16/161.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A hot dog with ketchup on it being held by a hand.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "161.png",
+      "target_image": "161.jpg",
+      "adv_image": "161.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0162",
+    "image_path": "examples/origin_images/162.png",
+    "adv_image_path": "mpcattack/eps-16/162.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A bicycle is parked in front of a building with colorful graffiti.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "162.png",
+      "target_image": "162.jpg",
+      "adv_image": "162.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0163",
+    "image_path": "examples/origin_images/163.png",
+    "adv_image_path": "mpcattack/eps-16/163.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A woman and two children are eating hot dogs at a table.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "163.png",
+      "target_image": "163.jpg",
+      "adv_image": "163.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0164",
+    "image_path": "examples/origin_images/164.png",
+    "adv_image_path": "mpcattack/eps-16/164.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A group of cows standing in a green field.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "164.png",
+      "target_image": "164.jpg",
+      "adv_image": "164.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0165",
+    "image_path": "examples/origin_images/165.png",
+    "adv_image_path": "mpcattack/eps-16/165.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A giraffe and a zebra in a fenced area with a barn in the background.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "165.png",
+      "target_image": "165.jpg",
+      "adv_image": "165.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0166",
+    "image_path": "examples/origin_images/166.png",
+    "adv_image_path": "mpcattack/eps-16/166.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A narrow bathroom with a green bucket on the floor and a towel hanging on the wall.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "166.png",
+      "target_image": "166.jpg",
+      "adv_image": "166.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0167",
+    "image_path": "examples/origin_images/167.png",
+    "adv_image_path": "mpcattack/eps-16/167.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A bunch of bananas with stickers on them.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "167.png",
+      "target_image": "167.jpg",
+      "adv_image": "167.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0168",
+    "image_path": "examples/origin_images/168.png",
+    "adv_image_path": "mpcattack/eps-16/168.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A giraffe is leaning over a wooden fence in a zoo enclosure.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "168.png",
+      "target_image": "168.jpg",
+      "adv_image": "168.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0169",
+    "image_path": "examples/origin_images/169.png",
+    "adv_image_path": "mpcattack/eps-16/169.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A bench on a sandy beach with a view of the ocean and mountains in the distance.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "169.png",
+      "target_image": "169.jpg",
+      "adv_image": "169.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0170",
+    "image_path": "examples/origin_images/170.png",
+    "adv_image_path": "mpcattack/eps-16/170.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A person skateboarding on a ramp in a park.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "170.png",
+      "target_image": "170.jpg",
+      "adv_image": "170.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0171",
+    "image_path": "examples/origin_images/171.png",
+    "adv_image_path": "mpcattack/eps-16/171.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A neatly made bed with white pillows and a beige blanket in a room with a large window.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "171.png",
+      "target_image": "171.jpg",
+      "adv_image": "171.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0172",
+    "image_path": "examples/origin_images/172.png",
+    "adv_image_path": "mpcattack/eps-16/172.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A bowl of fruit including bananas, apples, and pomegranate seeds.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "172.png",
+      "target_image": "172.jpg",
+      "adv_image": "172.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0173",
+    "image_path": "examples/origin_images/173.png",
+    "adv_image_path": "mpcattack/eps-16/173.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A horse with a white stripe on its forehead is being led out of a stable.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "173.png",
+      "target_image": "173.jpg",
+      "adv_image": "173.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0174",
+    "image_path": "examples/origin_images/174.png",
+    "adv_image_path": "mpcattack/eps-16/174.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A black dog with long hair laying on a white blanket.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "174.png",
+      "target_image": "174.jpg",
+      "adv_image": "174.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0175",
+    "image_path": "examples/origin_images/175.png",
+    "adv_image_path": "mpcattack/eps-16/175.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A man in a white shirt and black pants is swinging a baseball bat.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "175.png",
+      "target_image": "175.jpg",
+      "adv_image": "175.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0176",
+    "image_path": "examples/origin_images/176.png",
+    "adv_image_path": "mpcattack/eps-16/176.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A group of people are observing a giraffe at a zoo.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "176.png",
+      "target_image": "176.jpg",
+      "adv_image": "176.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0177",
+    "image_path": "examples/origin_images/177.png",
+    "adv_image_path": "mpcattack/eps-16/177.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A cat sitting on a toilet in a bathroom.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "177.png",
+      "target_image": "177.jpg",
+      "adv_image": "177.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0178",
+    "image_path": "examples/origin_images/178.png",
+    "adv_image_path": "mpcattack/eps-16/178.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A black bear is reaching for a coconut on a tree.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "178.png",
+      "target_image": "178.jpg",
+      "adv_image": "178.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0179",
+    "image_path": "examples/origin_images/179.png",
+    "adv_image_path": "mpcattack/eps-16/179.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A close-up of a computer mouse with an Apple logo.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "179.png",
+      "target_image": "179.jpg",
+      "adv_image": "179.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0180",
+    "image_path": "examples/origin_images/180.png",
+    "adv_image_path": "mpcattack/eps-16/180.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A stop sign with a message to fasten seat belts.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "180.png",
+      "target_image": "180.jpg",
+      "adv_image": "180.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0181",
+    "image_path": "examples/origin_images/181.png",
+    "adv_image_path": "mpcattack/eps-16/181.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"Three rusted fire hydrants on a city street.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "181.png",
+      "target_image": "181.jpg",
+      "adv_image": "181.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0182",
+    "image_path": "examples/origin_images/182.png",
+    "adv_image_path": "mpcattack/eps-16/182.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A surfer in a wetsuit is riding a wave on a white surfboard.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "182.png",
+      "target_image": "182.jpg",
+      "adv_image": "182.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0183",
+    "image_path": "examples/origin_images/183.png",
+    "adv_image_path": "mpcattack/eps-16/183.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A boy in a red shirt is holding a doughnut.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "183.png",
+      "target_image": "183.jpg",
+      "adv_image": "183.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0184",
+    "image_path": "examples/origin_images/184.png",
+    "adv_image_path": "mpcattack/eps-16/184.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A black and white photo of Big Ben in London.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "184.png",
+      "target_image": "184.jpg",
+      "adv_image": "184.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0185",
+    "image_path": "examples/origin_images/185.png",
+    "adv_image_path": "mpcattack/eps-16/185.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A person is standing in the water as a wave crashes over them.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "185.png",
+      "target_image": "185.jpg",
+      "adv_image": "185.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0186",
+    "image_path": "examples/origin_images/186.png",
+    "adv_image_path": "mpcattack/eps-16/186.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A person taking a selfie in a mirror.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "186.png",
+      "target_image": "186.jpg",
+      "adv_image": "186.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0187",
+    "image_path": "examples/origin_images/187.png",
+    "adv_image_path": "mpcattack/eps-16/187.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A person sitting on the snow with a snowboard.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "187.png",
+      "target_image": "187.jpg",
+      "adv_image": "187.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0188",
+    "image_path": "examples/origin_images/188.png",
+    "adv_image_path": "mpcattack/eps-16/188.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A sign for the Wisconsin State Fair on Main Street.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "188.png",
+      "target_image": "188.jpg",
+      "adv_image": "188.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0189",
+    "image_path": "examples/origin_images/189.png",
+    "adv_image_path": "mpcattack/eps-16/189.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A young girl is eating a sandwich while sitting in a chair.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "189.png",
+      "target_image": "189.jpg",
+      "adv_image": "189.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0190",
+    "image_path": "examples/origin_images/190.png",
+    "adv_image_path": "mpcattack/eps-16/190.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A cozy bedroom with a fireplace, wooden beams, and a large window with blinds.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "190.png",
+      "target_image": "190.jpg",
+      "adv_image": "190.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0191",
+    "image_path": "examples/origin_images/191.png",
+    "adv_image_path": "mpcattack/eps-16/191.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A man sitting on a red bench with a rope attached to a large metal object.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "191.png",
+      "target_image": "191.jpg",
+      "adv_image": "191.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0192",
+    "image_path": "examples/origin_images/192.png",
+    "adv_image_path": "mpcattack/eps-16/192.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A herd of sheep grazing in a field with trees and a haystack in the background.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "192.png",
+      "target_image": "192.jpg",
+      "adv_image": "192.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0193",
+    "image_path": "examples/origin_images/193.png",
+    "adv_image_path": "mpcattack/eps-16/193.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A tall clock tower with a clock face and a pointed roof.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "193.png",
+      "target_image": "193.jpg",
+      "adv_image": "193.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0194",
+    "image_path": "examples/origin_images/194.png",
+    "adv_image_path": "mpcattack/eps-16/194.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A man in a blue shirt and white shorts playing tennis.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "194.png",
+      "target_image": "194.jpg",
+      "adv_image": "194.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0195",
+    "image_path": "examples/origin_images/195.png",
+    "adv_image_path": "mpcattack/eps-16/195.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A group of four people wearing ski gear on a snowy mountain.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "195.png",
+      "target_image": "195.jpg",
+      "adv_image": "195.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0196",
+    "image_path": "examples/origin_images/196.png",
+    "adv_image_path": "mpcattack/eps-16/196.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A woman in a red swimsuit is paddleboarding on a blue surfboard.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "196.png",
+      "target_image": "196.jpg",
+      "adv_image": "196.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0197",
+    "image_path": "examples/origin_images/197.png",
+    "adv_image_path": "mpcattack/eps-16/197.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A bird with a white belly and brown wings is walking in the water.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "197.png",
+      "target_image": "197.jpg",
+      "adv_image": "197.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0198",
+    "image_path": "examples/origin_images/198.png",
+    "adv_image_path": "mpcattack/eps-16/198.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A horse is grazing near the beach with several straw umbrellas in the background.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "198.png",
+      "target_image": "198.jpg",
+      "adv_image": "198.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0199",
+    "image_path": "examples/origin_images/199.png",
+    "adv_image_path": "mpcattack/eps-16/199.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A jockey in a yellow and green outfit is riding a horse in a cart.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "199.png",
+      "target_image": "199.jpg",
+      "adv_image": "199.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0200",
+    "image_path": "examples/origin_images/200.png",
+    "adv_image_path": "mpcattack/eps-16/200.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A vintage airplane leaves a trail of smoke in the sky.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "200.png",
+      "target_image": "200.jpg",
+      "adv_image": "200.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0201",
+    "image_path": "examples/origin_images/201.png",
+    "adv_image_path": "mpcattack/eps-16/201.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A bathroom with a toilet, sink, and bathtub, featuring a colorful shower curtain.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "201.png",
+      "target_image": "201.jpg",
+      "adv_image": "201.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0202",
+    "image_path": "examples/origin_images/202.png",
+    "adv_image_path": "mpcattack/eps-16/202.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A street sign pointing to Kubota Gardens and other locations.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "202.png",
+      "target_image": "202.jpg",
+      "adv_image": "202.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0203",
+    "image_path": "examples/origin_images/203.png",
+    "adv_image_path": "mpcattack/eps-16/203.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A red train is parked at a station.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "203.png",
+      "target_image": "203.jpg",
+      "adv_image": "203.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0204",
+    "image_path": "examples/origin_images/204.png",
+    "adv_image_path": "mpcattack/eps-16/204.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A dog with a collar and tag on the beach.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "204.png",
+      "target_image": "204.jpg",
+      "adv_image": "204.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0205",
+    "image_path": "examples/origin_images/205.png",
+    "adv_image_path": "mpcattack/eps-16/205.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A hotel room with a bed, desk, and balcony view.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "205.png",
+      "target_image": "205.jpg",
+      "adv_image": "205.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0206",
+    "image_path": "examples/origin_images/206.png",
+    "adv_image_path": "mpcattack/eps-16/206.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A white cow standing in a grassy field.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "206.png",
+      "target_image": "206.jpg",
+      "adv_image": "206.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0207",
+    "image_path": "examples/origin_images/207.png",
+    "adv_image_path": "mpcattack/eps-16/207.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A green frosted cake decorated to look like a train with chocolate chips and candy decorations.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "207.png",
+      "target_image": "207.jpg",
+      "adv_image": "207.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0208",
+    "image_path": "examples/origin_images/208.png",
+    "adv_image_path": "mpcattack/eps-16/208.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A pizza with red peppers and green peppers on a white plate.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "208.png",
+      "target_image": "208.jpg",
+      "adv_image": "208.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0209",
+    "image_path": "examples/origin_images/209.png",
+    "adv_image_path": "mpcattack/eps-16/209.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A man is eating a doughnut in front of a waterfall.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "209.png",
+      "target_image": "209.jpg",
+      "adv_image": "209.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0210",
+    "image_path": "examples/origin_images/210.png",
+    "adv_image_path": "mpcattack/eps-16/210.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A cat is sniffing a book titled 'Soul Searching: The Journey of Thomas Merton'.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "210.png",
+      "target_image": "210.jpg",
+      "adv_image": "210.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0211",
+    "image_path": "examples/origin_images/211.png",
+    "adv_image_path": "mpcattack/eps-16/211.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A dog standing on a ledge in front of a tree with fruit.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "211.png",
+      "target_image": "211.jpg",
+      "adv_image": "211.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0212",
+    "image_path": "examples/origin_images/212.png",
+    "adv_image_path": "mpcattack/eps-16/212.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A person in red pants is standing on a wooden bench with a sign that says 'Weiner: You're Gonna Be Sitting on Me.'\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "212.png",
+      "target_image": "212.jpg",
+      "adv_image": "212.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0213",
+    "image_path": "examples/origin_images/213.png",
+    "adv_image_path": "mpcattack/eps-16/213.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A wooden bench sits in a grassy area surrounded by bushes and flowers.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "213.png",
+      "target_image": "213.jpg",
+      "adv_image": "213.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0214",
+    "image_path": "examples/origin_images/214.png",
+    "adv_image_path": "mpcattack/eps-16/214.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A bowl filled with blue and black beads and an old cell phone.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "214.png",
+      "target_image": "214.jpg",
+      "adv_image": "214.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0215",
+    "image_path": "examples/origin_images/215.png",
+    "adv_image_path": "mpcattack/eps-16/215.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A man in a striped shirt is playing frisbee in front of a sign that says 'car park'.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "215.png",
+      "target_image": "215.jpg",
+      "adv_image": "215.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0216",
+    "image_path": "examples/origin_images/216.png",
+    "adv_image_path": "mpcattack/eps-16/216.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A person sitting on the snow with skis and poles.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "216.png",
+      "target_image": "216.jpg",
+      "adv_image": "216.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0217",
+    "image_path": "examples/origin_images/217.png",
+    "adv_image_path": "mpcattack/eps-16/217.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A man holding a yellow frisbee with the word 'queer' on it.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "217.png",
+      "target_image": "217.jpg",
+      "adv_image": "217.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0218",
+    "image_path": "examples/origin_images/218.png",
+    "adv_image_path": "mpcattack/eps-16/218.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A bathroom with a toilet, sink, mirror, and some toiletries.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "218.png",
+      "target_image": "218.jpg",
+      "adv_image": "218.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0219",
+    "image_path": "examples/origin_images/219.png",
+    "adv_image_path": "mpcattack/eps-16/219.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A bird standing on a snowy ground with a green apple nearby.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "219.png",
+      "target_image": "219.jpg",
+      "adv_image": "219.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0220",
+    "image_path": "examples/origin_images/220.png",
+    "adv_image_path": "mpcattack/eps-16/220.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A person holding an umbrella walks through a flooded area.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "220.png",
+      "target_image": "220.jpg",
+      "adv_image": "220.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0221",
+    "image_path": "examples/origin_images/221.png",
+    "adv_image_path": "mpcattack/eps-16/221.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"Two giraffes standing in a grassy area.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "221.png",
+      "target_image": "221.jpg",
+      "adv_image": "221.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0222",
+    "image_path": "examples/origin_images/222.png",
+    "adv_image_path": "mpcattack/eps-16/222.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A bento box with broccoli, carrots, edamame, and a yellow toy on a striped tablecloth.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "222.png",
+      "target_image": "222.jpg",
+      "adv_image": "222.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0223",
+    "image_path": "examples/origin_images/223.png",
+    "adv_image_path": "mpcattack/eps-16/223.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A man in a black shirt is sleeping with a woman in a red shirt in the background.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "223.png",
+      "target_image": "223.jpg",
+      "adv_image": "223.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0224",
+    "image_path": "examples/origin_images/224.png",
+    "adv_image_path": "mpcattack/eps-16/224.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A soccer player in a red jersey with the number 2 on it.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "224.png",
+      "target_image": "224.jpg",
+      "adv_image": "224.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0225",
+    "image_path": "examples/origin_images/225.png",
+    "adv_image_path": "mpcattack/eps-16/225.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A man and a child are preparing to fly a kite in a park.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "225.png",
+      "target_image": "225.jpg",
+      "adv_image": "225.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0226",
+    "image_path": "examples/origin_images/226.png",
+    "adv_image_path": "mpcattack/eps-16/226.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A man in a yellow shirt is playing tennis.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "226.png",
+      "target_image": "226.jpg",
+      "adv_image": "226.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0227",
+    "image_path": "examples/origin_images/227.png",
+    "adv_image_path": "mpcattack/eps-16/227.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A man in a suit walking in front of a building.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "227.png",
+      "target_image": "227.jpg",
+      "adv_image": "227.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0228",
+    "image_path": "examples/origin_images/228.png",
+    "adv_image_path": "mpcattack/eps-16/228.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"Two white horses with red feathered headdresses stand side by side.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "228.png",
+      "target_image": "228.jpg",
+      "adv_image": "228.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0229",
+    "image_path": "examples/origin_images/229.png",
+    "adv_image_path": "mpcattack/eps-16/229.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A cat is perched on a man's head in front of a store.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "229.png",
+      "target_image": "229.jpg",
+      "adv_image": "229.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0230",
+    "image_path": "examples/origin_images/230.png",
+    "adv_image_path": "mpcattack/eps-16/230.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A train passes through a small town with a sign that says 'Sue's Emporium'.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "230.png",
+      "target_image": "230.jpg",
+      "adv_image": "230.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0231",
+    "image_path": "examples/origin_images/231.png",
+    "adv_image_path": "mpcattack/eps-16/231.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A sign on a wall that says 'No Parking on This Street'.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "231.png",
+      "target_image": "231.jpg",
+      "adv_image": "231.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0232",
+    "image_path": "examples/origin_images/232.png",
+    "adv_image_path": "mpcattack/eps-16/232.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A cozy living room with a red couch, a table with a white tablecloth, and a window with curtains.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "232.png",
+      "target_image": "232.jpg",
+      "adv_image": "232.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0233",
+    "image_path": "examples/origin_images/233.png",
+    "adv_image_path": "mpcattack/eps-16/233.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A pan filled with broccoli, carrots, and ham.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "233.png",
+      "target_image": "233.jpg",
+      "adv_image": "233.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0234",
+    "image_path": "examples/origin_images/234.png",
+    "adv_image_path": "mpcattack/eps-16/234.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A red fire hydrant is placed on a concrete block.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "234.png",
+      "target_image": "234.jpg",
+      "adv_image": "234.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0235",
+    "image_path": "examples/origin_images/235.png",
+    "adv_image_path": "mpcattack/eps-16/235.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A yellow fire hydrant on a brick sidewalk.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "235.png",
+      "target_image": "235.jpg",
+      "adv_image": "235.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0236",
+    "image_path": "examples/origin_images/236.png",
+    "adv_image_path": "mpcattack/eps-16/236.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"Three hot dogs with mustard on a plate.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "236.png",
+      "target_image": "236.jpg",
+      "adv_image": "236.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0237",
+    "image_path": "examples/origin_images/237.png",
+    "adv_image_path": "mpcattack/eps-16/237.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"Three giraffes standing in front of trees.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "237.png",
+      "target_image": "237.jpg",
+      "adv_image": "237.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0238",
+    "image_path": "examples/origin_images/238.png",
+    "adv_image_path": "mpcattack/eps-16/238.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A kitchen with wooden cabinets and a white refrigerator.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "238.png",
+      "target_image": "238.jpg",
+      "adv_image": "238.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0239",
+    "image_path": "examples/origin_images/239.png",
+    "adv_image_path": "mpcattack/eps-16/239.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"An outdoor cafe with tables and chairs under large umbrellas.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "239.png",
+      "target_image": "239.jpg",
+      "adv_image": "239.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0240",
+    "image_path": "examples/origin_images/240.png",
+    "adv_image_path": "mpcattack/eps-16/240.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A young girl in a striped shirt is playing with a soccer ball on a grassy field.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "240.png",
+      "target_image": "240.jpg",
+      "adv_image": "240.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0241",
+    "image_path": "examples/origin_images/241.png",
+    "adv_image_path": "mpcattack/eps-16/241.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A young boy holding a bunch of balloons and a small American flag.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "241.png",
+      "target_image": "241.jpg",
+      "adv_image": "241.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0242",
+    "image_path": "examples/origin_images/242.png",
+    "adv_image_path": "mpcattack/eps-16/242.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A man riding a red motorcycle on a street.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "242.png",
+      "target_image": "242.jpg",
+      "adv_image": "242.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0243",
+    "image_path": "examples/origin_images/243.png",
+    "adv_image_path": "mpcattack/eps-16/243.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A vintage black and white photo of two women in beds in a hospital room.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "243.png",
+      "target_image": "243.jpg",
+      "adv_image": "243.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0244",
+    "image_path": "examples/origin_images/244.png",
+    "adv_image_path": "mpcattack/eps-16/244.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A woman holding a bunch of green bananas in a jungle.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "244.png",
+      "target_image": "244.jpg",
+      "adv_image": "244.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0245",
+    "image_path": "examples/origin_images/245.png",
+    "adv_image_path": "mpcattack/eps-16/245.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A plate of food with asparagus, carrots, and cauliflower.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "245.png",
+      "target_image": "245.jpg",
+      "adv_image": "245.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0246",
+    "image_path": "examples/origin_images/246.png",
+    "adv_image_path": "mpcattack/eps-16/246.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A blue street sign with Chinese characters and the word 'QIQI JIE' on it.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "246.png",
+      "target_image": "246.jpg",
+      "adv_image": "246.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0247",
+    "image_path": "examples/origin_images/247.png",
+    "adv_image_path": "mpcattack/eps-16/247.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A man and woman are sitting at a table in a room with curtains and windows.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "247.png",
+      "target_image": "247.jpg",
+      "adv_image": "247.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0248",
+    "image_path": "examples/origin_images/248.png",
+    "adv_image_path": "mpcattack/eps-16/248.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A broccoli plant with large green leaves and a dense head of florets.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "248.png",
+      "target_image": "248.jpg",
+      "adv_image": "248.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0249",
+    "image_path": "examples/origin_images/249.png",
+    "adv_image_path": "mpcattack/eps-16/249.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A fire hydrant with eyes on the sidewalk next to a bike and a car.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "249.png",
+      "target_image": "249.jpg",
+      "adv_image": "249.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0250",
+    "image_path": "examples/origin_images/250.png",
+    "adv_image_path": "mpcattack/eps-16/250.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A young girl wearing sunglasses and a white outfit is playing tennis on a court.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "250.png",
+      "target_image": "250.jpg",
+      "adv_image": "250.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0251",
+    "image_path": "examples/origin_images/251.png",
+    "adv_image_path": "mpcattack/eps-16/251.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A beach scene with people swimming in the water and two chairs under a green umbrella.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "251.png",
+      "target_image": "251.jpg",
+      "adv_image": "251.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0252",
+    "image_path": "examples/origin_images/252.png",
+    "adv_image_path": "mpcattack/eps-16/252.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A bento box with ham, pasta, and vegetables.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "252.png",
+      "target_image": "252.jpg",
+      "adv_image": "252.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0253",
+    "image_path": "examples/origin_images/253.png",
+    "adv_image_path": "mpcattack/eps-16/253.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A pizza with cheese, olives, and corn toppings.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "253.png",
+      "target_image": "253.jpg",
+      "adv_image": "253.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0254",
+    "image_path": "examples/origin_images/254.png",
+    "adv_image_path": "mpcattack/eps-16/254.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A woman holding a BlackBerry phone with a smile on her face.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "254.png",
+      "target_image": "254.jpg",
+      "adv_image": "254.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0255",
+    "image_path": "examples/origin_images/255.png",
+    "adv_image_path": "mpcattack/eps-16/255.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A yellow airplane with a propeller and a sign that says 'The static aircraft area is designated as a tobacco free area'.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "255.png",
+      "target_image": "255.jpg",
+      "adv_image": "255.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  },
+  {
+    "sample_id": "caption_0256",
+    "image_path": "examples/origin_images/256.png",
+    "adv_image_path": "mpcattack/eps-16/256.png",
+    "user_prompt": "Describe the image in a simple sentence.",
+    "target_text": "\"A person water skiing on a lake with mountains in the background.\",",
+    "category": "caption",
+    "meta": {
+      "source": "caption_dataset",
+      "origin_image": "256.png",
+      "target_image": "256.jpg",
+      "adv_image": "256.png",
+      "num_origin_captions": 5,
+      "num_target_captions": 5,
+      "has_clean": true,
+      "has_adv": true
+    }
+  }
+]

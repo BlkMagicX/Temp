@@ -1,0 +1,70 @@
+exp_name: exp_mpcattack-eps-2_transfer_across_precision_qwen2-vl-7b
+
+output:
+  root_dir: outputs
+
+runtime:
+  resume: false
+  direct_image_test:
+    enabled: true
+    pairs_file: examples/mpcattack-eps-2_pairs.jsonl
+
+data:
+  annotation_path: examples/mpcattack-eps-2_samples.json
+  check_image_exists: false
+
+models:
+  eval_precisions:
+    - bf16
+    - w8a16
+    - w4a16
+
+  eval_model_template:
+    name: qwen2vl
+    model_path: Qwen/Qwen2-VL-7B-Instruct
+    quant_model_path: null
+    device: cuda
+    device_map: auto
+    # torch_dtype: auto
+    require_differentiable: false
+    force_model_dtype: true
+    trust_remote_code: true
+    quant_backend_config:
+      enable_placeholder_load: false
+
+  precision_overrides:
+    bf16:
+      backend_type: bf16
+      quant_model_path: null
+
+    w8a16:
+      backend_type: gptq
+      quant_model_path: Qwen/Qwen2-VL-7B-Instruct-GPTQ-INT8
+      torch_dtype: float16
+      device_map: auto
+
+    w4a16:
+      backend_type: gptq
+      quant_model_path: Qwen/Qwen2-VL-7B-Instruct-GPTQ-Int4
+      torch_dtype: float16
+      device_map: auto
+
+generation:
+  max_new_tokens: 32
+  do_sample: false
+
+judge:
+  type: qwen_api_caption
+  model_name: qwen-plus
+  torch_dtype: bfloat16
+  caption_success_threshold: 0.5
+  refusal_keywords:
+    - 抱歉
+    - 不能帮助
+    - 无法协助
+    - i can't
+    - sorry
+  lazy_load: true
+  max_new_tokens: 32
+  do_sample: false
+  trust_remote_code: true
