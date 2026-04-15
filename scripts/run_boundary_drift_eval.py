@@ -8,6 +8,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import re
 import sys
 from pathlib import Path
 from typing import Any, Dict
@@ -33,17 +34,13 @@ def _parse_literal_value(raw: str) -> Any:
         return False
 
     if (value.startswith("[") and value.endswith("]")) or (value.startswith("{") and value.endswith("}")):
-        try:
-            return json.loads(value)
-        except Exception:
-            return value
+        return json.loads(value)
 
-    try:
-        if "." in value:
-            return float(value)
+    if re.fullmatch(r"[+-]?\d+", value):
         return int(value)
-    except ValueError:
-        return value
+    if re.fullmatch(r"[+-]?\d*\.\d+", value):
+        return float(value)
+    return value
 
 
 def _set_deep(config: Dict[str, Any], dotted_key: str, value: Any) -> None:

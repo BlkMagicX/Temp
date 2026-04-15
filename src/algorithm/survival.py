@@ -55,18 +55,15 @@ def _parse_activation_bits(precision_name: str, default_bits: int = 16) -> int:
     if "a" not in norm:
         return default_bits
 
-    try:
-        after = norm.split("a", 1)[1]
-        digits = ""
-        for ch in after:
-            if ch.isdigit():
-                digits += ch
-            else:
-                break
-        if digits:
-            return max(1, int(digits))
-    except Exception:
-        return default_bits
+    after = norm.split("a", 1)[1]
+    digits = ""
+    for ch in after:
+        if ch.isdigit():
+            digits += ch
+        else:
+            break
+    if digits:
+        return max(1, int(digits))
     return default_bits
 
 

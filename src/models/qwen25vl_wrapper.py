@@ -5,15 +5,9 @@ from __future__ import annotations
 from typing import Any, Dict
 
 from transformers import AutoProcessor
+from transformers import Qwen2_5_VLForConditionalGeneration
 
 from .qwen2vl_wrapper import Qwen2VLWrapper
-
-try:
-    from transformers import Qwen2_5_VLForConditionalGeneration
-except ImportError as exc:  # pragma: no cover
-    raise ImportError(
-        "Qwen2.5-VL requires a newer transformers version with " "`Qwen2_5_VLForConditionalGeneration`. Please upgrade transformers."
-    ) from exc
 
 
 class Qwen25VLWrapper(Qwen2VLWrapper):
@@ -31,12 +25,6 @@ class Qwen25VLWrapper(Qwen2VLWrapper):
 
     def load_model(self) -> None:
         """Load processor and Qwen2.5-VL model according to `precision_mode`."""
-        if self.backend_type == "vllm":
-            if self.vllm_llm is not None:
-                return
-            self._load_vllm_model()
-            return
-
         if self.model is not None and self.processor is not None:
             return
 
@@ -59,13 +47,7 @@ class Qwen25VLWrapper(Qwen2VLWrapper):
         if self.device_map is None:
             self.model.to(self.device)
             if self.torch_dtype is not None:
-                try:
-                    self.model.to(dtype=self.torch_dtype)
-                except Exception as exc:  # noqa: BLE001
-                    raise RuntimeError(
-                        "Failed to cast quantized model to requested torch_dtype. "
-                        "Try setting device_map=None and a compatible torch_dtype (e.g. float16)."
-                    ) from exc
+                self.model.to(dtype=self.torch_dtype)
         self.model.eval()
 
     def _load_quantized_model(self):

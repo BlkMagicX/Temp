@@ -53,16 +53,6 @@ def create_vlm(model_config: Dict[str, Any]) -> BaseVLM:
         wrapper_cls = getattr(module, "Qwen25VLWrapper")
         return wrapper_cls(model_config)
 
-    if norm_type in {
-        "internvl35gguf",
-        "internvl3.5-gguf",
-        "internvl3-5-gguf",
-        "internvl3.5-1b-gguf",
-    }:
-        module = importlib.import_module("src.models.internvl35_gguf_wrapper")
-        wrapper_cls = getattr(module, "InternVL35GGUFWrapper")
-        return wrapper_cls(model_config)
-
     raise ValueError(f"Unsupported model type: {model_type}")
 
 

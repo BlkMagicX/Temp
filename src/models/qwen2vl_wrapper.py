@@ -1,4 +1,4 @@
-"""Qwen2-VL wrapper implementing the unified VLM interface."""
+"""Qwen2-VL wrapper for boundary-drift evaluation."""
 
 from __future__ import annotations
 
@@ -16,22 +16,20 @@ class Qwen2VLWrapper(BaseVLM):
     """Unified wrapper for `Qwen/Qwen2-VL-7B-Instruct`.
 
     Notes:
-                - `bf16` path is implemented and runnable.
-                - quantized paths are routed through backend adapters (`mbq` / `awq`).
-                - MBQ/AWQ backend internals are currently explicit placeholders unless
-                    real runtime loaders are integrated.
+        - `bf16` and `gptq` paths are supported.
+        - This project path intentionally excludes vllm/awq/mbq branches.
     """
 
-    SUPPORTED_PRECISION = {"bf16", "w3a16", "w8a8", "w4a4", "w4a16", "w8a16"}
-    SUPPORTED_BACKEND_TYPES = {"bf16", "mbq", "awq", "gptq", "vllm"}
+    SUPPORTED_PRECISION = {"bf16", "w3a16", "w4a16", "w8a16"}
+    SUPPORTED_BACKEND_TYPES = {"bf16", "gptq"}
 
     def __init__(self, config: Dict[str, Any]) -> None:
         """Initialize wrapper from config.
 
         Expected config fields (flat or nested by caller):
             - model_path / model_name_or_path: HF model id/path
-            - precision_mode: one of {bf16, , w4a16}
-            - backend_type: one of {bf16, mbq, awq}
+            - precision_mode: one of {bf16, w3a16, w4a16, w8a16}
+            - backend_type: one of {bf16, gptq}
             - quant_model_path: optional quantized checkpoint path
             - device / device_map: optional runtime placement
             - torch_dtype: optional, e.g. "bfloat16", "float16"
@@ -48,7 +46,6 @@ class Qwen2VLWrapper(BaseVLM):
         self.torch_dtype = self._parse_torch_dtype(config.get("torch_dtype", "bfloat16"))
         self.require_differentiable = bool(config.get("require_differentiable", False))
         self.quant_backend_config = dict(config.get("quant_backend_config", {}))
-        self.vllm_config = dict(config.get("vllm_config", {}))
 
         if self.precision_mode not in self.SUPPORTED_PRECISION:
             raise ValueError(f"Unsupported precision_mode={self.precision_mode}. " f"Expected one of {sorted(self.SUPPORTED_PRECISION)}")
@@ -56,22 +53,15 @@ class Qwen2VLWrapper(BaseVLM):
             raise ValueError(f"Unsupported backend_type={self.backend_type}. " f"Expected one of {sorted(self.SUPPORTED_BACKEND_TYPES)}")
         if self.precision_mode == "bf16" and self.backend_type != "bf16":
             raise ValueError("precision_mode=bf16 requires backend_type=bf16")
-        if self.precision_mode in {"", "w3a16", "w4a16"} and self.backend_type == "bf16":
-            raise ValueError(f"precision_mode={self.precision_mode} requires quant backend_type (mbq/awq/gptq), not bf16")
+        if self.precision_mode in {"", "w3a16", "w4a16", "w8a16"} and self.backend_type == "bf16":
+            raise ValueError(f"precision_mode={self.precision_mode} requires quant backend_type=gptq, not bf16")
 
         self.model: Optional[Qwen2VLForConditionalGeneration] = None
         self.processor: Optional[AutoProcessor] = None
         self.quant_backend: Optional[Any] = None
-        self.vllm_llm: Optional[Any] = None
 
     def load_model(self) -> None:
         """Load processor and model according to `precision_mode`."""
-        if self.backend_type == "vllm":
-            if self.vllm_llm is not None:
-                return
-            self._load_vllm_model()
-            return
-
         if self.model is not None and self.processor is not None:
             return
 
@@ -94,13 +84,7 @@ class Qwen2VLWrapper(BaseVLM):
         if self.device_map is None:
             self.model.to(self.device)
             if self.torch_dtype is not None:
-                try:
-                    self.model.to(dtype=self.torch_dtype)
-                except Exception as exc:  # noqa: BLE001
-                    raise RuntimeError(
-                        "Failed to cast quantized model to requested torch_dtype. "
-                        "Try setting device_map=None and a compatible torch_dtype (e.g. float16)."
-                    ) from exc
+                self.model.to(dtype=self.torch_dtype)
         self.model.eval()
 
     def preprocess_example(self, image: Any, prompt: str) -> Dict[str, Any]:
@@ -128,9 +112,6 @@ class Qwen2VLWrapper(BaseVLM):
         generation_config: Optional[Dict[str, Any]] = None,
     ) -> str:
         """Generate response text for one image + prompt pair."""
-        if self.backend_type == "vllm":
-            return self._generate_response_vllm(image=image, prompt=prompt, generation_config=generation_config)
-
         self._ensure_loaded()
         assert self.model is not None and self.processor is not None
 
@@ -163,9 +144,6 @@ class Qwen2VLWrapper(BaseVLM):
         """
         self._ensure_loaded()
         assert self.model is not None and self.processor is not None
-
-        if self.backend_type == "vllm":
-            raise RuntimeError("score_sequence_loglikelihood is not supported for backend_type=vllm")
 
         if isinstance(image, torch.Tensor):
             image = self._tensor_to_pil(image)
@@ -225,9 +203,6 @@ class Qwen2VLWrapper(BaseVLM):
         """
         self._ensure_loaded()
         assert self.model is not None and self.processor is not None
-
-        if self.backend_type == "vllm":
-            raise RuntimeError("forward_for_loss is not supported for backend_type=vllm")
 
         if self.quant_backend is not None and not self.quant_backend.is_differentiable():
             raise RuntimeError(
@@ -325,7 +300,6 @@ class Qwen2VLWrapper(BaseVLM):
         try:
             return self.model.visual.patch_embed.proj.weight.dtype
         except Exception:
-            # print(next(self.model.parameters()).dtype)
             return next(self.model.parameters()).dtype
 
     def _align_batch_for_model(self, batch: Dict[str, Any]) -> Dict[str, Any]:
@@ -410,91 +384,6 @@ class Qwen2VLWrapper(BaseVLM):
         """Return model device."""
         return self.device
 
-    def _load_vllm_model(self) -> None:
-        """Load vLLM model for multimodal generation-only inference."""
-        try:
-            from vllm import LLM
-        except ImportError as exc:  # pragma: no cover
-            raise ImportError("backend_type=vllm requires installing vllm") from exc
-
-        model_id = self.quant_model_path or self.model_path
-        max_model_len = self.vllm_config.get("max_model_len", self.config.get("max_model_len", 4096))
-        max_num_seqs = self.vllm_config.get("max_num_seqs", self.config.get("max_num_seqs", 2))
-
-        if self.processor is None:
-            self.processor = AutoProcessor.from_pretrained(self.processor_path)
-
-        self.vllm_llm = LLM(
-            model=model_id,
-            max_model_len=int(max_model_len),
-            max_num_seqs=int(max_num_seqs),
-        )
-
-    def _build_vllm_prompt(self, prompt: str) -> str:
-        """Build default chat prompt for vLLM multimodal call."""
-        if self.processor is not None and hasattr(self.processor, "apply_chat_template"):
-            messages = [
-                {
-                    "role": "user",
-                    "content": [
-                        {"type": "image"},
-                        {"type": "text", "text": prompt},
-                    ],
-                }
-            ]
-            return self.processor.apply_chat_template(
-                messages,
-                tokenize=False,
-                add_generation_prompt=True,
-            )
-
-        return f"<|user|>\n<|image_1|>\n{prompt}<|end|>\n<|assistant|>\n"
-
-    def _generate_response_vllm(
-        self,
-        image: Any,
-        prompt: str,
-        generation_config: Optional[Dict[str, Any]] = None,
-    ) -> str:
-        """Generate response with vLLM backend."""
-        self._ensure_loaded()
-        assert self.vllm_llm is not None
-
-        try:
-            from vllm import SamplingParams
-        except ImportError as exc:  # pragma: no cover
-            raise ImportError("backend_type=vllm requires installing vllm") from exc
-
-        gen_cfg = {"max_new_tokens": 128, "do_sample": False, "temperature": 0.0}
-        if generation_config:
-            gen_cfg.update(generation_config)
-
-        max_tokens = int(gen_cfg.get("max_tokens", gen_cfg.get("max_new_tokens", 128)))
-        temperature = float(gen_cfg.get("temperature", 0.0))
-        sampling_params = SamplingParams(
-            temperature=temperature,
-            max_tokens=max_tokens,
-        )
-
-        prompt_text = self._build_vllm_prompt(prompt)
-        if isinstance(image, torch.Tensor):
-            image = self._tensor_to_pil(image)
-        if hasattr(image, "convert"):
-            image = image.convert("RGB")
-
-        inputs = {
-            "prompt": prompt_text,
-            "multi_modal_data": {"image": [image]},
-        }
-
-        outputs = self.vllm_llm.generate(inputs, sampling_params)
-        if not outputs:
-            return ""
-        out0 = outputs[0]
-        if not getattr(out0, "outputs", None):
-            return ""
-        return str(out0.outputs[0].text).strip()
-
     def _load_quantized_model(self) -> Qwen2VLForConditionalGeneration:
         """Load quantized model via selected backend adapter."""
         self.quant_backend = self._build_quant_backend()
@@ -511,32 +400,17 @@ class Qwen2VLWrapper(BaseVLM):
         """Construct quant backend from configuration.
 
         Mapping:
-            - backend_type=mbq -> `MBQBackend`
-            - backend_type=awq -> `AWQBackend`
             - backend_type=gptq -> `GPTQBackend`
         """
-        if self.backend_type == "mbq":
-            mbq_module = importlib.import_module("src.models.quant_backends.mbq_backend")
-            mbq_cls = getattr(mbq_module, "MBQBackend")
-            return mbq_cls(precision_name=self.precision_mode)
-        if self.backend_type == "awq":
-            awq_module = importlib.import_module("src.models.quant_backends.awq_backend")
-            awq_cls = getattr(awq_module, "AWQBackend")
-            return awq_cls(precision_name=self.precision_mode)
         if self.backend_type == "gptq":
             gptq_module = importlib.import_module("src.models.quant_backends.gptq_backend")
             gptq_cls = getattr(gptq_module, "GPTQBackend")
             return gptq_cls(precision_name=self.precision_mode)
 
-        raise ValueError(f"Quantized precision requested with unsupported backend_type={self.backend_type}. " "Expected 'mbq', 'awq', or 'gptq'.")
+        raise ValueError(f"Quantized precision requested with unsupported backend_type={self.backend_type}. Expected 'gptq'.")
 
     def _ensure_loaded(self) -> None:
         """Lazy-load model and processor if needed."""
-        if self.backend_type == "vllm":
-            if self.vllm_llm is None:
-                self.load_model()
-            return
-
         if self.model is None or self.processor is None:
             self.load_model()
 

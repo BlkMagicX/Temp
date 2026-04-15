@@ -9,14 +9,7 @@ from typing import Any, Dict, Iterable, List
 
 
 def _avg(values: Iterable[float]) -> float:
-    vals: List[float] = []
-    for v in values:
-        if v is None:
-            continue
-        try:
-            vals.append(float(v))
-        except (TypeError, ValueError):
-            continue
+    vals = [float(v) for v in values if v is not None]
     if not vals:
         return 0.0
     return float(sum(vals) / len(vals))

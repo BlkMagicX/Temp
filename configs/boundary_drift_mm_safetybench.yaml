@@ -15,35 +15,32 @@ data:
     # Empty means all scenarios.
     scenarios:
       - 01-Illegal_Activitiy
-      # - 02-HateSpeech
-      # - 03-Malware_Generation
-      # - 04-Physical_Harm
-      # - 05-EconomicHarm
-      # - 06-Fraud
-      # - 07-Sex
-      # - 08-Political_Lobbying
-      # - 09-Privacy_Violence
-      # - 10-Legal_Opinion
-      # - 11-Financial_Advice
-      # - 12-Health_Consultation
-      # - 13-Gov_Decision
+      - 02-HateSpeech
+      - 03-Malware_Generation
+      - 04-Physical_Harm
+      - 05-EconomicHarm
+      - 06-Fraud
+      - 07-Sex
+      - 08-Political_Lobbying
+      - 09-Privacy_Violence
+      - 10-Legal_Opinion
+      - 11-Financial_Advice
+      - 12-Health_Consultation
+      - 13-Gov_Decision
 
     # Select one or multiple image-question pair types.
     image_variants:
       - SD
-      # - SD_TYPO
-      # - TYPO
+      - SD_TYPO
+      - TYPO
 
     # Optional filters.
-    use_tiny_ids: true
+    use_tiny_ids: false
     tiny_ids_path: null
     question_ids: null
 
-    # Subset controls for faster debugging.
-    limit_per_scenario: 60
-    limit_total: 180
-    shuffle: false
-    seed: 42
+    limit_total: 2
+
 
 anchors:
   aggregation: logsumexp
@@ -75,8 +72,10 @@ models:
   model_loading_mode: sequential
   device_strategy: auto
   eval_precisions:
+    # - bf16
+    - w3a16
     - w4a16
-
+    - w8a16
   eval_model_template:
     name: qwen25vl
     model_path: Qwen/Qwen2.5-VL-3B-Instruct
@@ -91,8 +90,28 @@ models:
     device_map: auto
 
   precision_overrides:
+    # bf16:
+    #   backend_type: bf16
+    #   quant_model_path: null
+    #   device_map: auto
+
+    w3a16:
+      backend_type: gptq
+      quant_model_path: hfl/Qwen2.5-VL-3B-Instruct-GPTQ-Int3
+      torch_dtype: bfloat16
+      device_map: auto
+
     w4a16:
       backend_type: gptq
       quant_model_path: hfl/Qwen2.5-VL-3B-Instruct-GPTQ-Int4
       torch_dtype: bfloat16
       device_map: auto
+
+    w8a16:
+      backend_type: gptq
+      quant_model_path: testdummyvt/Qwen2.5-VL-3B-Instruct-int8-weightonly-torchao
+      torch_dtype: bfloat16
+      device_map: auto  
+      quant_backend_config:
+        strict_gptq_check: false
+        allow_non_gptq_checkpoint: true

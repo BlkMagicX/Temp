@@ -88,12 +88,6 @@ class GPTQBackend(BaseQuantBackend):
             quant_model_path,
             **load_kwargs,
         )
-        # except Exception as exc:  # noqa: BLE001
-        #     raise RuntimeError(
-        #         "Failed to load GPTQ quantized model. "
-        #         "Please verify checkpoint compatibility, transformers version, and GPTQ runtime dependencies. "
-        #         f"quant_model_path={quant_model_path}"
-        #     ) from exc
 
         return model
 

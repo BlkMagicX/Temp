@@ -83,14 +83,3 @@ models:
         strict_gptq_check: false
         allow_non_gptq_checkpoint: true
 
-    w4a4:
-      backend_type: vllm
-      quant_model_path: JongYeop/Qwen2.5-VL-3B-Instruct-FP4-W4A4-LM-Only
-      torch_dtype: bfloat16
-      device_map: auto
-
-    w8a8:
-      backend_type: vllm
-      quant_model_path: RedHatAI/Qwen2.5-VL-3B-Instruct-quantized.w8a8
-      torch_dtype: bfloat16
-      device_map: auto
