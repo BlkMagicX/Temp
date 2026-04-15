@@ -68,7 +68,7 @@ class TransferAcrossPrecisionExperiment:
         )
 
         models_cfg = config.get("models", {})
-        self.eval_precisions = models_cfg.get("eval_precisions", ["bf16", "w8a8", "w4a16", "w8a16", "w4a4"])
+        self.eval_precisions = models_cfg.get("eval_precisions", ["bf16", "w8a8", "w4a16", "w8a16", "w4a4", "w3a16"])
         self.eval_model_template = dict(models_cfg.get("eval_model_template", {}))
 
         self.generation_cfg = config.get("generation", {"max_new_tokens": 128, "do_sample": False})
@@ -497,5 +497,10 @@ def load_experiment_config(config_path: str | Path) -> Dict[str, Any]:
 def run_experiment(config_path: str | Path) -> Dict[str, Any]:
     """Convenience entrypoint for running this experiment."""
     config = load_experiment_config(config_path)
+    return run_experiment_from_config(config)
+
+
+def run_experiment_from_config(config: Dict[str, Any]) -> Dict[str, Any]:
+    """Run experiment directly from an in-memory config dictionary."""
     runner = TransferAcrossPrecisionExperiment(config=config)
     return runner.run()

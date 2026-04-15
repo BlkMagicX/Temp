@@ -31,6 +31,12 @@ def create_vlm(model_config: Dict[str, Any]) -> BaseVLM:
 
     norm_type = str(model_type).lower().replace("_", "-")
 
+    # Compatibility guard: if config name says qwen2vl but model path points to
+    # Qwen2.5-VL, route to Qwen2.5 wrapper to avoid shape mismatch at load time.
+    model_path = str(model_config.get("model_path") or model_config.get("model_name_or_path") or "").lower()
+    if norm_type in {"qwen2vl", "qwen2-vl", "qwen2-vl-7b-instruct"} and "qwen2.5-vl" in model_path:
+        norm_type = "qwen25vl"
+
     if norm_type in {"qwen2vl", "qwen2-vl", "qwen2-vl-7b-instruct"}:
         module = importlib.import_module("src.models.qwen2vl_wrapper")
         wrapper_cls = getattr(module, "Qwen2VLWrapper")
@@ -45,6 +51,16 @@ def create_vlm(model_config: Dict[str, Any]) -> BaseVLM:
     }:
         module = importlib.import_module("src.models.qwen25vl_wrapper")
         wrapper_cls = getattr(module, "Qwen25VLWrapper")
+        return wrapper_cls(model_config)
+
+    if norm_type in {
+        "internvl35gguf",
+        "internvl3.5-gguf",
+        "internvl3-5-gguf",
+        "internvl3.5-1b-gguf",
+    }:
+        module = importlib.import_module("src.models.internvl35_gguf_wrapper")
+        wrapper_cls = getattr(module, "InternVL35GGUFWrapper")
         return wrapper_cls(model_config)
 
     raise ValueError(f"Unsupported model type: {model_type}")

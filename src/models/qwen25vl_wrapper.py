@@ -31,28 +31,34 @@ class Qwen25VLWrapper(Qwen2VLWrapper):
 
     def load_model(self) -> None:
         """Load processor and Qwen2.5-VL model according to `precision_mode`."""
+        if self.backend_type == "vllm":
+            if self.vllm_llm is not None:
+                return
+            self._load_vllm_model()
+            return
+
         if self.model is not None and self.processor is not None:
             return
 
-        self.processor = AutoProcessor.from_pretrained(
-            self.processor_path,
-            trust_remote_code=self.trust_remote_code,
-        )
+        self.processor = AutoProcessor.from_pretrained(self.processor_path)
 
         if self.backend_type == "bf16" or self.precision_mode == "bf16":
-            self.model = Qwen2_5_VLForConditionalGeneration.from_pretrained(
-                self.model_path,
-                torch_dtype=self.torch_dtype,
-                trust_remote_code=self.trust_remote_code,
-            )
-            self.model.to(self.device)
+            load_kwargs: Dict[str, Any] = {}
+            if self.torch_dtype is not None:
+                load_kwargs["torch_dtype"] = self.torch_dtype
+            if self.device_map is not None:
+                load_kwargs["device_map"] = self.device_map
+
+            self.model = Qwen2_5_VLForConditionalGeneration.from_pretrained(self.model_path, **load_kwargs)
+            if self.device_map is None:
+                self.model.to(self.device)
             self.model.eval()
             return
 
         self.model = self._load_quantized_model()
         if self.device_map is None:
             self.model.to(self.device)
-            if self.force_model_dtype and self.torch_dtype is not None:
+            if self.torch_dtype is not None:
                 try:
                     self.model.to(dtype=self.torch_dtype)
                 except Exception as exc:  # noqa: BLE001
@@ -71,6 +77,5 @@ class Qwen25VLWrapper(Qwen2VLWrapper):
             quant_model_path=self.quant_model_path,
             device_map=self.device_map,
             torch_dtype=self.torch_dtype,
-            trust_remote_code=self.trust_remote_code,
             extra_config=self.quant_backend_config,
         )

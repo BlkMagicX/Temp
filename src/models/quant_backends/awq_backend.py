@@ -33,7 +33,6 @@ class AWQBackend(BaseQuantBackend):
         quant_model_path: Optional[str],
         device_map: Optional[Any],
         torch_dtype: Optional[Any],
-        trust_remote_code: bool,
         extra_config: Optional[Dict[str, Any]] = None,
     ) -> Any:
         """Load AWQ quantized model.
@@ -51,8 +50,6 @@ class AWQBackend(BaseQuantBackend):
                 Device map for loading.
             torch_dtype:
                 Optional dtype hint.
-            trust_remote_code:
-                Whether to trust remote code when loading HF model.
             extra_config:
                 Optional backend config dictionary.
 
@@ -70,9 +67,7 @@ class AWQBackend(BaseQuantBackend):
         if not quant_model_path:
             raise ValueError("AWQBackend requires `quant_model_path` for loading.")
 
-        load_kwargs: Dict[str, Any] = {
-            "trust_remote_code": trust_remote_code,
-        }
+        load_kwargs: Dict[str, Any] = {}
 
         if device_map is not None:
             load_kwargs["device_map"] = device_map

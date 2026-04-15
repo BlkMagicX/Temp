@@ -27,7 +27,6 @@ class MBQBackend(BaseQuantBackend):
         quant_model_path: Optional[str],
         device_map: Optional[Any],
         torch_dtype: Optional[Any],
-        trust_remote_code: bool,
         extra_config: Optional[Dict[str, Any]] = None,
     ) -> Any:
         """Load MBQ quantized model.
@@ -48,12 +47,7 @@ class MBQBackend(BaseQuantBackend):
 
         if cfg.get("enable_placeholder_load", False):
             load_path = quant_model_path or model_path
-            return model_cls.from_pretrained(
-                load_path,
-                device_map=device_map,
-                torch_dtype=torch_dtype,
-                trust_remote_code=trust_remote_code,
-            )
+            return model_cls.from_pretrained(load_path, device_map=device_map, torch_dtype=torch_dtype)
 
         raise NotImplementedError(
             "MBQ backend real loading is TODO.\n"

@@ -32,7 +32,6 @@ class GPTQBackend(BaseQuantBackend):
         quant_model_path: Optional[str],
         device_map: Optional[Any],
         torch_dtype: Optional[Any],
-        trust_remote_code: bool,
         extra_config: Optional[Dict[str, Any]] = None,
     ) -> Any:
         """Load GPTQ quantized model.
@@ -43,7 +42,6 @@ class GPTQBackend(BaseQuantBackend):
             quant_model_path: GPTQ checkpoint path or HF repo id.
             device_map: Device map for loading.
             torch_dtype: Optional dtype hint.
-            trust_remote_code: Whether to trust remote code when loading.
             extra_config: Backend-specific options.
 
         Raises:
@@ -59,10 +57,7 @@ class GPTQBackend(BaseQuantBackend):
         allow_non_gptq_checkpoint = bool(extra_config.get("allow_non_gptq_checkpoint", False))
 
         if strict_gptq_check:
-            cfg = AutoConfig.from_pretrained(
-                quant_model_path,
-                trust_remote_code=trust_remote_code,
-            )
+            cfg = AutoConfig.from_pretrained(quant_model_path)
             qcfg = getattr(cfg, "quantization_config", None)
 
             quant_method = None
@@ -80,7 +75,6 @@ class GPTQBackend(BaseQuantBackend):
                 )
 
         load_kwargs: Dict[str, Any] = {
-            "trust_remote_code": trust_remote_code,
             "low_cpu_mem_usage": True,
         }
 
@@ -90,17 +84,16 @@ class GPTQBackend(BaseQuantBackend):
         if torch_dtype is not None:
             load_kwargs["torch_dtype"] = torch_dtype
 
-        try:
-            model = model_cls.from_pretrained(
-                quant_model_path,
-                **load_kwargs,
-            )
-        except Exception as exc:  # noqa: BLE001
-            raise RuntimeError(
-                "Failed to load GPTQ quantized model. "
-                "Please verify checkpoint compatibility, transformers version, and GPTQ runtime dependencies. "
-                f"quant_model_path={quant_model_path}"
-            ) from exc
+        model = model_cls.from_pretrained(
+            quant_model_path,
+            **load_kwargs,
+        )
+        # except Exception as exc:  # noqa: BLE001
+        #     raise RuntimeError(
+        #         "Failed to load GPTQ quantized model. "
+        #         "Please verify checkpoint compatibility, transformers version, and GPTQ runtime dependencies. "
+        #         f"quant_model_path={quant_model_path}"
+        #     ) from exc
 
         return model
 

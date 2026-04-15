@@ -23,7 +23,6 @@ class BaseQuantBackend(ABC):
         quant_model_path: Optional[str],
         device_map: Optional[Any],
         torch_dtype: Optional[torch.dtype],
-        trust_remote_code: bool,
         extra_config: Optional[Dict[str, Any]] = None,
     ) -> Any:
         """Load quantized model instance.
@@ -34,7 +33,6 @@ class BaseQuantBackend(ABC):
             quant_model_path: Quantized checkpoint path/id.
             device_map: Device mapping passed to loader when supported.
             torch_dtype: Torch dtype hint.
-            trust_remote_code: HF remote-code flag.
             extra_config: Backend-specific options.
         """
 
