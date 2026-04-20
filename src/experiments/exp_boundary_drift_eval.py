@@ -133,7 +133,7 @@ class BoundaryDriftExperiment:
 
     @staticmethod
     def _is_non_differentiable_backend(backend_type: str) -> bool:
-        return backend_type.lower() == "gptq"
+        return backend_type.lower() in {"gptq", "vllm"}
 
     def _prepare_attack_model(self) -> None:
         self.attack_model = self._load_attack_model()
@@ -159,6 +159,8 @@ class BoundaryDriftExperiment:
             model.model = None
         if hasattr(model, "processor"):
             model.processor = None
+        if hasattr(model, "vllm_llm"):
+            model.vllm_llm = None
 
         del model
         gc.collect()

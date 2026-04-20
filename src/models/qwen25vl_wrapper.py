@@ -25,6 +25,12 @@ class Qwen25VLWrapper(Qwen2VLWrapper):
 
     def load_model(self) -> None:
         """Load processor and Qwen2.5-VL model according to `precision_mode`."""
+        if self.backend_type == "vllm":
+            if self.vllm_llm is not None:
+                return
+            self._load_vllm_model()
+            return
+
         if self.model is not None and self.processor is not None:
             return
 

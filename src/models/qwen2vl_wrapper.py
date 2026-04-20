@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import inspect
 import importlib
 from typing import Any, Dict, Optional
 
@@ -17,19 +18,19 @@ class Qwen2VLWrapper(BaseVLM):
 
     Notes:
         - `bf16` and `gptq` paths are supported.
-        - This project path intentionally excludes vllm/awq/mbq branches.
+        - `vllm` is supported for inference-only quantized backends.
     """
 
-    SUPPORTED_PRECISION = {"bf16", "w3a16", "w4a16", "w8a16"}
-    SUPPORTED_BACKEND_TYPES = {"bf16", "gptq"}
+    SUPPORTED_PRECISION = {"bf16", "w3a16", "w4a4", "w4a16", "w8a8", "w8a16"}
+    SUPPORTED_BACKEND_TYPES = {"bf16", "gptq", "vllm"}
 
     def __init__(self, config: Dict[str, Any]) -> None:
         """Initialize wrapper from config.
 
         Expected config fields (flat or nested by caller):
             - model_path / model_name_or_path: HF model id/path
-            - precision_mode: one of {bf16, w3a16, w4a16, w8a16}
-            - backend_type: one of {bf16, gptq}
+            - precision_mode: one of {bf16, w3a16, w4a4, w4a16, w8a8, w8a16}
+            - backend_type: one of {bf16, gptq, vllm}
             - quant_model_path: optional quantized checkpoint path
             - device / device_map: optional runtime placement
             - torch_dtype: optional, e.g. "bfloat16", "float16"
@@ -46,6 +47,7 @@ class Qwen2VLWrapper(BaseVLM):
         self.torch_dtype = self._parse_torch_dtype(config.get("torch_dtype", "bfloat16"))
         self.require_differentiable = bool(config.get("require_differentiable", False))
         self.quant_backend_config = dict(config.get("quant_backend_config", {}))
+        self.vllm_config = dict(config.get("vllm_config", {}))
 
         if self.precision_mode not in self.SUPPORTED_PRECISION:
             raise ValueError(f"Unsupported precision_mode={self.precision_mode}. " f"Expected one of {sorted(self.SUPPORTED_PRECISION)}")
@@ -53,15 +55,22 @@ class Qwen2VLWrapper(BaseVLM):
             raise ValueError(f"Unsupported backend_type={self.backend_type}. " f"Expected one of {sorted(self.SUPPORTED_BACKEND_TYPES)}")
         if self.precision_mode == "bf16" and self.backend_type != "bf16":
             raise ValueError("precision_mode=bf16 requires backend_type=bf16")
-        if self.precision_mode in {"", "w3a16", "w4a16", "w8a16"} and self.backend_type == "bf16":
-            raise ValueError(f"precision_mode={self.precision_mode} requires quant backend_type=gptq, not bf16")
+        if self.precision_mode in {"", "w3a16", "w4a4", "w4a16", "w8a8", "w8a16"} and self.backend_type == "bf16":
+            raise ValueError(f"precision_mode={self.precision_mode} requires quant backend_type (gptq/vllm), not bf16")
 
         self.model: Optional[Qwen2VLForConditionalGeneration] = None
         self.processor: Optional[AutoProcessor] = None
         self.quant_backend: Optional[Any] = None
+        self.vllm_llm: Optional[Any] = None
 
     def load_model(self) -> None:
         """Load processor and model according to `precision_mode`."""
+        if self.backend_type == "vllm":
+            if self.vllm_llm is not None:
+                return
+            self._load_vllm_model()
+            return
+
         if self.model is not None and self.processor is not None:
             return
 
@@ -112,6 +121,9 @@ class Qwen2VLWrapper(BaseVLM):
         generation_config: Optional[Dict[str, Any]] = None,
     ) -> str:
         """Generate response text for one image + prompt pair."""
+        if self.backend_type == "vllm":
+            return self._generate_response_vllm(image=image, prompt=prompt, generation_config=generation_config)
+
         self._ensure_loaded()
         assert self.model is not None and self.processor is not None
 
@@ -142,6 +154,9 @@ class Qwen2VLWrapper(BaseVLM):
         This path is intentionally non-differentiable and can be used on
         non-differentiable quantized backends (for example GPTQ).
         """
+        if self.backend_type == "vllm":
+            return self._score_sequence_loglikelihood_vllm(image=image, prompt=prompt, target_text=target_text)
+
         self._ensure_loaded()
         assert self.model is not None and self.processor is not None
 
@@ -203,6 +218,9 @@ class Qwen2VLWrapper(BaseVLM):
         """
         self._ensure_loaded()
         assert self.model is not None and self.processor is not None
+
+        if self.backend_type == "vllm":
+            raise RuntimeError("forward_for_loss is not supported for backend_type=vllm")
 
         if self.quant_backend is not None and not self.quant_backend.is_differentiable():
             raise RuntimeError(
@@ -384,6 +402,173 @@ class Qwen2VLWrapper(BaseVLM):
         """Return model device."""
         return self.device
 
+    def _load_vllm_model(self) -> None:
+        """Load vLLM model for multimodal inference-only backend."""
+        from vllm import LLM
+
+        model_id = self.quant_model_path or self.model_path
+        max_model_len = int(self.vllm_config.get("max_model_len", self.config.get("max_model_len", 4096)))
+        max_num_seqs = int(self.vllm_config.get("max_num_seqs", self.config.get("max_num_seqs", 2)))
+
+        if self.processor is None:
+            self.processor = AutoProcessor.from_pretrained(self.processor_path)
+
+        llm_kwargs: Dict[str, Any] = {
+            "model": model_id,
+            "max_model_len": max_model_len,
+            "max_num_seqs": max_num_seqs,
+        }
+        if self.torch_dtype is not None:
+            llm_kwargs["dtype"] = str(self.torch_dtype).replace("torch.", "")
+
+        # Optional runtime controls for stability/performance tuning.
+        optional_keys = [
+            "tensor_parallel_size",
+            "pipeline_parallel_size",
+            "gpu_memory_utilization",
+            "swap_space",
+            "enforce_eager",
+            "disable_custom_all_reduce",
+            "max_num_batched_tokens",
+            "limit_mm_per_prompt",
+            "trust_remote_code",
+        ]
+        for key in optional_keys:
+            if key in self.vllm_config:
+                llm_kwargs[key] = self.vllm_config[key]
+
+        # Keep compatibility across vLLM versions by filtering unsupported args.
+        llm_kwargs = self._filter_supported_llm_kwargs(LLM, llm_kwargs)
+        print(f"[vllm-init] kwargs={llm_kwargs}", flush=True)
+
+        self.vllm_llm = LLM(**llm_kwargs)
+
+    @staticmethod
+    def _filter_supported_llm_kwargs(llm_cls: Any, kwargs: Dict[str, Any]) -> Dict[str, Any]:
+        """Filter kwargs to arguments accepted by current vLLM `LLM` signature."""
+        try:
+            sig = inspect.signature(llm_cls)
+        except (TypeError, ValueError):
+            return kwargs
+
+        params = sig.parameters
+        if any(p.kind == inspect.Parameter.VAR_KEYWORD for p in params.values()):
+            return kwargs
+
+        allowed = set(params.keys())
+        return {k: v for k, v in kwargs.items() if k in allowed}
+
+    def _generate_response_vllm(
+        self,
+        image: Any,
+        prompt: str,
+        generation_config: Optional[Dict[str, Any]] = None,
+    ) -> str:
+        """Generate response with vLLM backend."""
+        self._ensure_loaded()
+        assert self.vllm_llm is not None and self.processor is not None
+
+        from vllm import SamplingParams
+
+        gen_cfg = {"max_new_tokens": 128, "do_sample": False, "temperature": 0.0}
+        if generation_config:
+            gen_cfg.update(generation_config)
+
+        max_tokens = int(gen_cfg.get("max_tokens", gen_cfg.get("max_new_tokens", 128)))
+        temperature = float(gen_cfg.get("temperature", 0.0))
+        sampling_params = SamplingParams(temperature=temperature, max_tokens=max_tokens)
+
+        prompt_text = self._build_user_chat_text(prompt, add_generation_prompt=True)
+        if isinstance(image, torch.Tensor):
+            image = self._tensor_to_pil(image)
+        if hasattr(image, "convert"):
+            image = image.convert("RGB")
+
+        inputs = {
+            "prompt": prompt_text,
+            "multi_modal_data": {"image": image},
+        }
+
+        outputs = self.vllm_llm.generate(inputs, sampling_params)
+        if not outputs:
+            return ""
+        out0 = outputs[0]
+        if not getattr(out0, "outputs", None):
+            return ""
+        return str(out0.outputs[0].text).strip()
+
+    def _score_sequence_loglikelihood_vllm(
+        self,
+        image: Any,
+        prompt: str,
+        target_text: str,
+    ) -> float:
+        """Estimate sequence log-likelihood using vLLM prompt logprobs."""
+        self._ensure_loaded()
+        assert self.vllm_llm is not None and self.processor is not None
+
+        from vllm import SamplingParams
+
+        if isinstance(image, torch.Tensor):
+            image = self._tensor_to_pil(image)
+        if hasattr(image, "convert"):
+            image = image.convert("RGB")
+
+        prefix_text = self._build_user_chat_text(prompt, add_generation_prompt=True)
+        full_text = prefix_text + target_text
+
+        sampling_params = SamplingParams(
+            temperature=0.0,
+            max_tokens=1,
+            prompt_logprobs=1,
+        )
+        inputs = {
+            "prompt": full_text,
+            "multi_modal_data": {"image": image},
+        }
+        outputs = self.vllm_llm.generate(inputs, sampling_params)
+        if not outputs:
+            return 0.0
+
+        out0 = outputs[0]
+        prompt_token_ids = list(getattr(out0, "prompt_token_ids", []) or [])
+        prompt_logprobs = list(getattr(out0, "prompt_logprobs", []) or [])
+        if not prompt_token_ids or not prompt_logprobs:
+            return 0.0
+
+        if hasattr(self.vllm_llm, "get_tokenizer"):
+            tokenizer = self.vllm_llm.get_tokenizer()
+        else:
+            tokenizer = self.processor.tokenizer
+        prefix_ids = tokenizer(prefix_text, add_special_tokens=False)["input_ids"]
+        prefix_len = int(len(prefix_ids))
+        if prefix_len >= len(prompt_token_ids):
+            return 0.0
+
+        total_logprob = 0.0
+        for pos in range(prefix_len, len(prompt_token_ids)):
+            if pos >= len(prompt_logprobs):
+                break
+            lp_entry = prompt_logprobs[pos]
+            token_id = prompt_token_ids[pos]
+            token_lp: Optional[float] = None
+
+            if isinstance(lp_entry, dict):
+                candidate = lp_entry.get(token_id)
+                if candidate is None:
+                    candidate = lp_entry.get(str(token_id))
+                if candidate is not None:
+                    if hasattr(candidate, "logprob"):
+                        token_lp = float(candidate.logprob)
+                    elif isinstance(candidate, (float, int)):
+                        token_lp = float(candidate)
+
+            if token_lp is None:
+                return 0.0
+            total_logprob += token_lp
+
+        return float(total_logprob)
+
     def _load_quantized_model(self) -> Qwen2VLForConditionalGeneration:
         """Load quantized model via selected backend adapter."""
         self.quant_backend = self._build_quant_backend()
@@ -411,6 +596,11 @@ class Qwen2VLWrapper(BaseVLM):
 
     def _ensure_loaded(self) -> None:
         """Lazy-load model and processor if needed."""
+        if self.backend_type == "vllm":
+            if self.vllm_llm is None:
+                self.load_model()
+            return
+
         if self.model is None or self.processor is None:
             self.load_model()
 
