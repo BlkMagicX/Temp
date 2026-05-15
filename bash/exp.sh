@@ -7,13 +7,15 @@ echo "Cannot find conda.sh"
 exit 1
 fi
 
-# conda activate gptq
-# echo "[1/3] quant env: boundary_drift_mm_safetybench_w"
-# python scripts/run_boundary_drift_eval.py --config configs/boundary_drift_mm_safetybench_w.yaml
+conda activate gptq
+echo "[1/4] quant env: boundary_drift_mm_safetybench_w"
+python src/main.py --config configs/boundary_drift_mm_safetybench_w.yaml
 
-conda activate quant
-echo "[2/3] quant env: boundary_drift_mm_safetybench_w4a4"
-CUDA_VISIBLE_DEVICES=0,1 python scripts/run_boundary_drift_eval.py --config configs/boundary_drift_mm_safetybench_w4a4.yaml
+echo "[2/4] quant env: representation_drift_all_layers"
+python scripts/run_representation_drift.py --config configs/representation_drift_all_layers.yaml
 
-echo "[3/3] quant env: boundary_drift_mm_safetybench_w8a8"
-CUDA_VISIBLE_DEVICES=0,1 python scripts/run_boundary_drift_eval.py --config configs/boundary_drift_mm_safetybench_w8a8.yaml
+echo "[3/4] quant env: qcsd_landscape_mm_safetybench_w3a16_layer4_top20"
+python scripts/run_qcsd_landscape.py --config configs/qcsd_landscape_mm_safetybench_w3a16_layer4_top20.yaml
+
+echo "[4/4] quant env: qcsd_landscape_mm_safetybench_w3a16_layer31_top20"
+python scripts/run_qcsd_landscape.py --config configs/qcsd_landscape_mm_safetybench_w3a16_layer31_top20.yaml

@@ -158,7 +158,8 @@ class AnchorScorer:
             return 0.0
 
         if loss is not None:
-            return float((-loss.detach() * valid_tokens).item())
+            # Length-normalized log-likelihood per token.
+            return float((-loss.detach()).item())
 
         if logits is None:
             raise RuntimeError("forward_for_loss must return loss or logits for teacher-forced scoring")
@@ -170,4 +171,4 @@ class AnchorScorer:
             ignore_index=-100,
             reduction="sum",
         )
-        return float((-ce.detach()).item())
+        return float((-ce.detach() / float(valid_tokens)).item())

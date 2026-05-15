@@ -70,6 +70,13 @@ class BoundaryDriftExperiment:
             raise ValueError("anchors.refusal_anchors and anchors.compliance_anchors must be non-empty")
         self.anchor_scorer = AnchorScorer(self.anchor_cfg)
 
+        anchors_tau_cfg = dict(anchors_cfg.get("tau", {}))
+        if not anchors_tau_cfg:
+            anchors_tau_cfg = dict(config.get("tau", {}))
+        self.anchor_tau_mode = str(anchors_tau_cfg.get("mode", "fixed"))
+        self.anchor_tau_fixed = float(anchors_tau_cfg.get("fixed", 1.0))
+        self.anchor_tau_quantile = float(anchors_tau_cfg.get("quantile", 0.2))
+
         tau_cfg = dict(config.get("tau", {}))
         self.tau_mode = str(tau_cfg.get("mode", "fixed"))
         self.tau_fixed = float(tau_cfg.get("fixed", 1.0))
@@ -207,6 +214,9 @@ class BoundaryDriftExperiment:
             refusal_scores=refusal_scores,
             compliance_scores=compliance_scores,
             aggregation=self.anchor_cfg.aggregation,
+            tau_mode=self.anchor_tau_mode,
+            tau_fixed=self.anchor_tau_fixed,
+            tau_quantile=self.anchor_tau_quantile,
         )
 
     def _iter_batches(self, items: List[CleanHarmfulSample]) -> List[List[CleanHarmfulSample]]:
@@ -284,6 +294,7 @@ class BoundaryDriftExperiment:
                     refusal_anchors=self.anchor_cfg.refusal_anchors,
                     compliance_anchors=self.anchor_cfg.compliance_anchors,
                     aggregation=self.anchor_cfg.aggregation,
+                    aggregation_tau=self.anchor_tau_fixed if self.anchor_tau_mode == "fixed" else 1.0,
                 )
                 attack_grad_cache[sid] = grad
                 attack_kappa_cache[sid] = compute_kappa(grad)

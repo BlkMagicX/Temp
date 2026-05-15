@@ -2,9 +2,10 @@
 
 from __future__ import annotations
 
+from contextlib import contextmanager
 import inspect
 import importlib
-from typing import Any, Dict, Optional
+from typing import Any, Dict, Iterator, List, Optional, Sequence, Tuple
 
 import torch
 import torch.nn.functional as F
@@ -154,8 +155,55 @@ class Qwen2VLWrapper(BaseVLM):
         This path is intentionally non-differentiable and can be used on
         non-differentiable quantized backends (for example GPTQ).
         """
+        scores = self.score_sequence_loglikelihood_batch(
+            image=image,
+            prompt=prompt,
+            target_texts=[target_text],
+        )
+        return float(scores[0]) if scores else 0.0
+
+    @staticmethod
+    def _sequence_loglikelihood_from_logits(logits: torch.Tensor, labels: torch.Tensor) -> torch.Tensor:
+        """Compute per-sample sequence log-likelihood from logits/labels."""
+        if logits.dim() != 3 or labels.dim() != 2:
+            raise ValueError("Expected logits [B,T,V] and labels [B,T]")
+        if int(logits.shape[0]) != int(labels.shape[0]) or int(logits.shape[1]) != int(labels.shape[1]):
+            raise ValueError("logits/labels shape mismatch: " f"logits={tuple(logits.shape)}, labels={tuple(labels.shape)}")
+
+        if int(logits.shape[1]) <= 1:
+            return torch.zeros((int(logits.shape[0]),), device=logits.device, dtype=logits.dtype)
+
+        shift_logits = logits[:, :-1, :].contiguous()
+        shift_labels = labels[:, 1:].contiguous()
+
+        valid_mask = shift_labels != -100
+        safe_labels = shift_labels.masked_fill(~valid_mask, 0)
+
+        token_nll = F.cross_entropy(
+            shift_logits.view(-1, shift_logits.shape[-1]),
+            safe_labels.view(-1),
+            reduction="none",
+        )
+        token_nll = token_nll.view_as(shift_labels)
+        token_nll = token_nll * valid_mask.to(dtype=token_nll.dtype)
+        token_counts = valid_mask.to(dtype=token_nll.dtype).sum(dim=1).clamp(min=1)
+        return -token_nll.sum(dim=1) / token_counts
+
+    def _score_sequence_loglikelihood_batch_impl(
+        self,
+        image: Any,
+        prompt: str,
+        target_texts: Sequence[str],
+        hidden_intervention: Optional[Tuple[int, torch.Tensor, str]] = None,
+    ) -> List[float]:
+        targets = [str(t) for t in target_texts]
+        if not targets:
+            return []
+
         if self.backend_type == "vllm":
-            return self._score_sequence_loglikelihood_vllm(image=image, prompt=prompt, target_text=target_text)
+            if hidden_intervention is not None:
+                raise RuntimeError("hidden-state intervention is not supported for backend_type=vllm")
+            return [float(self._score_sequence_loglikelihood_vllm(image=image, prompt=prompt, target_text=t)) for t in targets]
 
         self._ensure_loaded()
         assert self.model is not None and self.processor is not None
@@ -172,27 +220,313 @@ class Qwen2VLWrapper(BaseVLM):
             return_tensors="pt",
         )
 
-        full_text = prefix_text + target_text
-        model_inputs = self.processor(
-            text=[full_text],
-            images=[image],
-            return_tensors="pt",
-        )
+        full_texts = [prefix_text + t for t in targets]
+        images = [image for _ in full_texts]
+        try:
+            model_inputs = self.processor(
+                text=full_texts,
+                images=images,
+                return_tensors="pt",
+                padding=True,
+            )
+        except TypeError:
+            model_inputs = self.processor(
+                text=full_texts,
+                images=images,
+                return_tensors="pt",
+            )
 
         prefix_len = int(prefix_inputs["input_ids"].shape[-1])
         labels = model_inputs["input_ids"].clone()
         labels[:, :prefix_len] = -100
-        valid_tokens = int((labels != -100).sum().item())
+
+        # Important: when batching with padding, padded positions must be
+        # ignored in teacher-forced likelihood; otherwise scores are biased low.
+        attn_mask = model_inputs.get("attention_mask")
+        if isinstance(attn_mask, torch.Tensor):
+            labels = labels.masked_fill(attn_mask == 0, -100)
 
         model_inputs["labels"] = labels
         model_inputs["return_dict"] = True
         model_inputs = self._align_batch_for_model(model_inputs)
 
-        outputs = self.model(**model_inputs)
-        loss = outputs.loss
-        if loss is None or valid_tokens <= 0:
-            return 0.0
-        return float((-loss.detach() * valid_tokens).item())
+        labels_aligned = model_inputs["labels"]
+        if hidden_intervention is None:
+            outputs = self.model(**model_inputs)
+        else:
+            layer_index, delta_hidden, token_scope = hidden_intervention
+            with self._temporary_hidden_state_intervention(
+                layer_index=int(layer_index),
+                delta_hidden=delta_hidden,
+                token_scope=token_scope,
+            ):
+                outputs = self.model(**model_inputs)
+
+        logits = outputs.logits
+        seq_ll = self._sequence_loglikelihood_from_logits(logits=logits, labels=labels_aligned)
+        return [float(x.item()) for x in seq_ll]
+
+    @torch.inference_mode()
+    def score_sequence_loglikelihood_batch(
+        self,
+        image: Any,
+        prompt: str,
+        target_texts: Sequence[str],
+    ) -> List[float]:
+        """Batch teacher-forced log-likelihood scoring for multiple targets."""
+        return self._score_sequence_loglikelihood_batch_impl(
+            image=image,
+            prompt=prompt,
+            target_texts=target_texts,
+            hidden_intervention=None,
+        )
+
+    def _resolve_text_decoder_layers(self) -> List[Any]:
+        """Resolve text decoder layer module list for hidden-state intervention."""
+        self._ensure_loaded()
+        if self.model is None:
+            raise RuntimeError("Model is not loaded")
+
+        c = getattr(self.model, "model", None)
+
+        language_model = getattr(c, "language_model", None)
+        layers = getattr(language_model, "layers", None)
+        n_layers = len(layers)
+
+        if n_layers > 0:
+            return list(layers)
+
+        raise RuntimeError("Failed to locate text decoder layers for hidden-state intervention")
+
+    @staticmethod
+    def _normalize_layer_index(layer_index: int, n_layers: int) -> int:
+        idx = int(layer_index)
+        if idx < 0:
+            idx = int(n_layers) + idx
+        if idx < 0 or idx >= int(n_layers):
+            raise ValueError(f"layer_index out of range: {layer_index} for n_layers={n_layers}")
+        return idx
+
+    @staticmethod
+    def _make_hidden_intervention_hook(delta_hidden: torch.Tensor, token_scope: str):
+        scope = str(token_scope).lower().strip()
+        if scope not in {"all", "first", "last"}:
+            raise ValueError("token_scope must be one of: all/first/last")
+
+        def _hook(_module: Any, _inputs: Tuple[Any, ...], output: Any) -> Any:
+            if isinstance(output, tuple):
+                if not output:
+                    return output
+                hidden = output[0]
+                tail = output[1:]
+            else:
+                hidden = output
+                tail = None
+
+            if not isinstance(hidden, torch.Tensor):
+                return output
+
+            delta = delta_hidden.to(device=hidden.device, dtype=hidden.dtype)
+            if delta.dim() == 1:
+                add = delta.view(1, 1, -1)
+            elif delta.dim() == 2:
+                if int(delta.shape[0]) == int(hidden.shape[1]):
+                    add = delta.unsqueeze(0)
+                elif int(delta.shape[0]) == 1:
+                    add = delta.unsqueeze(1)
+                else:
+                    raise ValueError("delta_hidden shape mismatch for 2D tensor: expected [T,H] or [1,H], " f"got {tuple(delta.shape)}")
+            elif delta.dim() == 3:
+                add = delta
+            else:
+                raise ValueError(f"Unsupported delta_hidden ndim={delta.dim()}, expected 1/2/3")
+
+            if int(add.shape[-1]) != int(hidden.shape[-1]):
+                raise ValueError("delta_hidden hidden-size mismatch: " f"delta={int(add.shape[-1])}, hidden={int(hidden.shape[-1])}")
+            if int(add.shape[0]) not in {1, int(hidden.shape[0])}:
+                raise ValueError("delta_hidden batch-size mismatch: " f"delta={int(add.shape[0])}, hidden={int(hidden.shape[0])}")
+            if int(add.shape[1]) not in {1, int(hidden.shape[1])}:
+                raise ValueError("delta_hidden token-length mismatch: " f"delta={int(add.shape[1])}, hidden={int(hidden.shape[1])}")
+
+            add = add.expand(int(hidden.shape[0]), int(hidden.shape[1]), int(hidden.shape[2]))
+            if scope == "all":
+                new_hidden = hidden + add
+            elif scope == "last":
+                new_hidden = hidden.clone()
+                new_hidden[:, -1, :] = new_hidden[:, -1, :] + add[:, -1, :]
+            else:  # scope == "first"
+                new_hidden = hidden.clone()
+                new_hidden[:, 0, :] = new_hidden[:, 0, :] + add[:, 0, :]
+
+            if tail is None:
+                return new_hidden
+            return (new_hidden, *tail)
+
+        return _hook
+
+    @contextmanager
+    def _temporary_hidden_state_intervention(
+        self,
+        layer_index: int,
+        delta_hidden: torch.Tensor,
+        token_scope: str = "all",
+    ) -> Iterator[None]:
+        layers = self._resolve_text_decoder_layers()
+        idx = self._normalize_layer_index(layer_index=layer_index, n_layers=len(layers))
+        hook_fn = self._make_hidden_intervention_hook(delta_hidden=delta_hidden, token_scope=token_scope)
+        handle = layers[idx].register_forward_hook(hook_fn)
+        try:
+            yield
+        finally:
+            handle.remove()
+
+    @torch.inference_mode()
+    def score_sequence_loglikelihood_with_hidden_intervention(
+        self,
+        image: Any,
+        prompt: str,
+        target_text: str,
+        layer_index: int,
+        delta_hidden: torch.Tensor,
+        token_scope: str = "all",
+    ) -> float:
+        """Teacher-forced log-likelihood with one hidden-state intervention.
+
+        This is the core primitive for exact hidden-space landscape scanning.
+        """
+        scores = self.score_sequence_loglikelihood_batch_with_hidden_intervention(
+            image=image,
+            prompt=prompt,
+            target_texts=[target_text],
+            layer_index=layer_index,
+            delta_hidden=delta_hidden,
+            token_scope=token_scope,
+        )
+        return float(scores[0]) if scores else 0.0
+
+    @torch.inference_mode()
+    def score_sequence_loglikelihood_batch_with_hidden_intervention(
+        self,
+        image: Any,
+        prompt: str,
+        target_texts: Sequence[str],
+        layer_index: int,
+        delta_hidden: torch.Tensor,
+        token_scope: str = "all",
+    ) -> List[float]:
+        """Batch hidden-intervention scoring for multiple targets."""
+        if not isinstance(delta_hidden, torch.Tensor):
+            delta_hidden = torch.as_tensor(delta_hidden, dtype=torch.float32)
+        return self._score_sequence_loglikelihood_batch_impl(
+            image=image,
+            prompt=prompt,
+            target_texts=target_texts,
+            hidden_intervention=(int(layer_index), delta_hidden, str(token_scope)),
+        )
+
+    @torch.inference_mode()
+    def prepare_score_inputs(
+        self,
+        image: Any,
+        prompt: str,
+        target_texts: Sequence[str],
+    ) -> Dict[str, Any]:
+        """Pre-compute model_inputs/labels for repeated scoring with the same image+prompt+targets.
+
+        Use with `score_with_prepared(...)` when iterating over many alpha steps in
+        exact-mode landscape scans, where image/prompt/targets stay constant and only
+        the hidden-state intervention changes per step.
+        """
+        targets = [str(t) for t in target_texts]
+        if not targets:
+            return {"model_inputs": None, "labels_aligned": None, "n_targets": 0}
+
+        if self.backend_type == "vllm":
+            raise RuntimeError("prepare_score_inputs is not supported for backend_type=vllm")
+
+        self._ensure_loaded()
+        assert self.model is not None and self.processor is not None
+
+        if isinstance(image, torch.Tensor):
+            image = self._tensor_to_pil(image)
+        if hasattr(image, "convert"):
+            image = image.convert("RGB")
+
+        prefix_text = self._build_user_chat_text(prompt, add_generation_prompt=True)
+        prefix_inputs = self.processor(
+            text=[prefix_text],
+            images=[image],
+            return_tensors="pt",
+        )
+
+        full_texts = [prefix_text + t for t in targets]
+        images = [image for _ in full_texts]
+        try:
+            model_inputs = self.processor(
+                text=full_texts,
+                images=images,
+                return_tensors="pt",
+                padding=True,
+            )
+        except TypeError:
+            model_inputs = self.processor(
+                text=full_texts,
+                images=images,
+                return_tensors="pt",
+            )
+
+        prefix_len = int(prefix_inputs["input_ids"].shape[-1])
+        labels = model_inputs["input_ids"].clone()
+        labels[:, :prefix_len] = -100
+
+        attn_mask = model_inputs.get("attention_mask")
+        if isinstance(attn_mask, torch.Tensor):
+            labels = labels.masked_fill(attn_mask == 0, -100)
+
+        model_inputs["labels"] = labels
+        model_inputs["return_dict"] = True
+        aligned = self._align_batch_for_model(model_inputs)
+
+        return {
+            "model_inputs": aligned,
+            "labels_aligned": aligned["labels"],
+            "n_targets": len(targets),
+        }
+
+    @torch.inference_mode()
+    def score_with_prepared(
+        self,
+        prepared: Dict[str, Any],
+        hidden_intervention: Optional[Tuple[int, torch.Tensor, str]] = None,
+    ) -> List[float]:
+        """Score using inputs prepared by `prepare_score_inputs(...)`.
+
+        Skips processor + tokenization + image preprocessing on each call, which is
+        the dominant cost when sweeping many alpha steps with constant image/prompt.
+        """
+        if int(prepared.get("n_targets", 0)) == 0:
+            return []
+
+        self._ensure_loaded()
+        assert self.model is not None
+
+        model_inputs = prepared["model_inputs"]
+        labels_aligned = prepared["labels_aligned"]
+
+        if hidden_intervention is None:
+            outputs = self.model(**model_inputs)
+        else:
+            layer_index, delta_hidden, token_scope = hidden_intervention
+            with self._temporary_hidden_state_intervention(
+                layer_index=int(layer_index),
+                delta_hidden=delta_hidden,
+                token_scope=str(token_scope),
+            ):
+                outputs = self.model(**model_inputs)
+
+        logits = outputs.logits
+        seq_ll = self._sequence_loglikelihood_from_logits(logits=logits, labels=labels_aligned)
+        return [float(x.item()) for x in seq_ll]
 
     def forward_for_loss(
         self,
